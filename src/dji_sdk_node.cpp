@@ -77,7 +77,7 @@ std::string     enc_key;
 // activation
 static activation_data_t activation_msg = {14,2,1,""};
 
-
+float gimbal_yaw_control_sp = 0;
 //----------------------------------------------------------
 //table of sdk req data handler
 //----------------------------------------------------------

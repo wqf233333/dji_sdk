@@ -59,14 +59,14 @@
     <favorites_list name="dji_sdk" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.54209065">
+    <splitter split-orientation="horizontal" split-proportion="0.68085104">
       <split-first>
         <leaf>
           <file leaf-file-name="dji_sdk_node.cpp" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/dji_sdk_node.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="21.100756">
-                  <caret line="1114" column="32" selection-start-line="1114" selection-start-column="32" selection-end-line="1114" selection-end-column="32" />
+                <state vertical-scroll-proportion="3.852645">
+                  <caret line="327" column="26" selection-start-line="327" selection-start-column="26" selection-end-line="327" selection-end-column="26" />
                   <folding>
                     <element signature="e#313#333#0" expanded="true" />
                     <element signature="e#410#428#0" expanded="true" />
@@ -114,7 +114,7 @@
             <entry file="file://$PROJECT_DIR$/src/dji_sdk_node.cpp">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="1146" column="25" selection-start-line="1146" selection-start-column="25" selection-end-line="1146" selection-end-column="25" />
+                  <caret line="79" column="32" selection-start-line="79" selection-start-column="32" selection-end-line="79" selection-end-column="32" />
                   <folding>
                     <element signature="e#313#333#0" expanded="true" />
                     <element signature="e#410#428#0" expanded="true" />
@@ -134,10 +134,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="local_position.msg" pinned="false" current-in-tab="true">
+          <file leaf-file-name="local_position.msg" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/msg/local_position.msg">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.071788415">
+                <state vertical-scroll-proportion="0.0">
                   <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
                   <folding />
                 </state>
@@ -174,11 +174,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="gimbal.msg" pinned="false" current-in-tab="false">
+          <file leaf-file-name="gimbal.msg" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/msg/gimbal.msg">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+                <state vertical-scroll-proportion="0.023929471">
+                  <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -215,11 +215,11 @@
         <option value="$PROJECT_DIR$/msg/velocity_sp.msg" />
         <option value="$PROJECT_DIR$/msg/attitude_quad_sp.msg" />
         <option value="$PROJECT_DIR$/msg/attitude_euler_sp.msg" />
-        <option value="$PROJECT_DIR$/msg/gimbal.msg" />
         <option value="$PROJECT_DIR$/src/sdk_lib/DJI_Pro_App.h" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/msg/acc.msg" />
         <option value="$PROJECT_DIR$/msg/local_position.msg" />
+        <option value="$PROJECT_DIR$/msg/gimbal.msg" />
         <option value="$PROJECT_DIR$/src/dji_sdk_node.cpp" />
       </list>
     </option>
@@ -692,14 +692,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/msg/gimbal.msg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/include/math.h">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -716,38 +708,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dji_sdk_node.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1146" column="25" selection-start-line="1146" selection-start-column="25" selection-end-line="1146" selection-end-column="25" />
-          <folding>
-            <element signature="e#313#333#0" expanded="true" />
-            <element signature="e#410#428#0" expanded="true" />
-            <element signature="e#759#776#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/msg/attitude_quad.msg">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/msg/velocity.msg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/msg/global_position.msg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -762,9 +726,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/msg/local_position.msg">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.071788415">
+        <state vertical-scroll-proportion="0.0">
           <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/msg/global_position.msg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/msg/velocity.msg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/msg/gimbal.msg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.023929471">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dji_sdk_node.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="3.852645">
+          <caret line="327" column="26" selection-start-line="327" selection-start-column="26" selection-end-line="327" selection-end-column="26" />
+          <folding>
+            <element signature="e#313#333#0" expanded="true" />
+            <element signature="e#410#428#0" expanded="true" />
+            <element signature="e#759#776#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
