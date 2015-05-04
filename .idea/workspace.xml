@@ -18,16 +18,17 @@
       <config projectName="dji_sdk" targetName="rosgraph_msgs_generate_messages_cpp" />
       <config projectName="dji_sdk" targetName="doxygen" />
       <config projectName="dji_sdk" targetName="dji_sdk_generate_messages_lisp" />
+      <config projectName="dji_sdk" targetName="_dji_sdk_generate_messages_check_deps_acc" />
       <config projectName="dji_sdk" targetName="_dji_sdk_generate_messages_check_deps_local_position" />
       <config projectName="dji_sdk" targetName="tests" />
       <config projectName="dji_sdk" targetName="run_tests" />
       <config projectName="dji_sdk" targetName="roscpp_generate_messages_cpp" />
       <config projectName="dji_sdk" targetName="rosgraph_msgs_generate_messages_py" />
       <config projectName="dji_sdk" targetName="_dji_sdk_generate_messages_check_deps_attitude_quad_sp" />
-      <config projectName="dji_sdk" targetName="_dji_sdk_generate_messages_check_deps_acc" />
+      <config projectName="dji_sdk" targetName="dji_sdk_generate_messages_py" />
       <config projectName="dji_sdk" targetName="dji_sdk_genpy" />
       <config projectName="dji_sdk" targetName="roscpp_generate_messages_lisp" />
-      <config projectName="dji_sdk" targetName="dji_sdk_generate_messages_py" />
+      <config projectName="dji_sdk" targetName="_dji_sdk_generate_messages_check_deps_set_local_position_ref" />
       <config projectName="dji_sdk" targetName="_dji_sdk_generate_messages_check_deps_attitude_euler_sp" />
       <config projectName="dji_sdk" targetName="_dji_sdk_generate_messages_check_deps_attitude_quad" />
       <config projectName="dji_sdk" targetName="_dji_sdk_generate_messages_check_deps_velocity_sp" />
@@ -59,28 +60,50 @@
     <favorites_list name="dji_sdk" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.4611111">
+    <splitter split-orientation="horizontal" split-proportion="0.59444445">
       <split-first>
         <leaf>
           <file leaf-file-name="dji_sdk_node.cpp" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/dji_sdk_node.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.78463477">
-                  <caret line="540" column="24" selection-start-line="540" selection-start-column="24" selection-end-line="540" selection-end-column="24" />
+                <state vertical-scroll-proportion="0.3324937">
+                  <caret line="107" column="8" selection-start-line="107" selection-start-column="8" selection-end-line="107" selection-end-column="8" />
                   <folding>
                     <element signature="e#313#333#0" expanded="true" />
                     <element signature="e#410#428#0" expanded="true" />
-                    <element signature="e#759#776#0" expanded="true" />
+                    <element signature="e#803#820#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="global_position.h" pinned="false" current-in-tab="false">
-            <entry file="file://$USER_HOME$/Library/Caches/clion10/cmake/generated/cabc1472/cabc1472/Debug/devel/include/dji_sdk/global_position.h">
+          <file leaf-file-name="set_local_position_ref.h" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/inc/include/dji_sdk/set_local_position_ref.h">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="98" column="25" selection-start-line="98" selection-start-column="25" selection-end-line="98" selection-end-column="25" />
+                  <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+                  <folding>
+                    <element signature="e#1852#1883#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="set_local_position_refRequest.h" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/inc/include/dji_sdk/set_local_position_refRequest.h">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="velocity.h" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/inc/include/dji_sdk/velocity.h">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -100,7 +123,7 @@
             <entry file="file://$PROJECT_DIR$/src/sdk_lib/DJI_Pro_App.h">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="82" column="21" selection-start-line="82" selection-start-column="21" selection-end-line="82" selection-end-column="21" />
+                  <caret line="80" column="12" selection-start-line="80" selection-start-column="12" selection-end-line="80" selection-end-column="12" />
                   <folding />
                 </state>
               </provider>
@@ -110,35 +133,37 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="dji_sdk_node.cpp" pinned="false" current-in-tab="true">
+          <file leaf-file-name="dji_sdk_node.cpp" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/dji_sdk_node.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.16246851">
-                  <caret line="542" column="0" selection-start-line="542" selection-start-column="0" selection-end-line="542" selection-end-column="0" />
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="111" column="38" selection-start-line="111" selection-start-column="38" selection-end-line="111" selection-end-column="38" />
                   <folding>
                     <element signature="e#313#333#0" expanded="true" />
-                    <element signature="e#410#428#0" expanded="true" />
-                    <element signature="e#759#776#0" expanded="true" />
+                    <element signature="e#803#820#0" expanded="true" />
+                    <marker date="1430725616000" expanded="true" signature="2998:3722" placeholder="{...}" />
+                    <marker date="1430725616000" expanded="true" signature="3194:3491" placeholder="{...}" />
+                    <marker date="1430725616000" expanded="true" signature="3520:3720" placeholder="{...}" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="DJI_Pro_App.cpp" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/sdk_lib/DJI_Pro_App.cpp">
+          <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="66" column="5" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
+                  <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="DJI_Pro_App.h" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/sdk_lib/DJI_Pro_App.h">
+          <file leaf-file-name="set_local_position_ref.srv" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/srv/set_local_position_ref.srv">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="82" column="21" selection-start-line="82" selection-start-column="21" selection-end-line="82" selection-end-column="21" />
+                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -156,10 +181,11 @@
         <option value="$PROJECT_DIR$/msg/attitude_quad_sp.msg" />
         <option value="$PROJECT_DIR$/msg/attitude_euler_sp.msg" />
         <option value="$PROJECT_DIR$/src/sdk_lib/DJI_Pro_App.h" />
-        <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/msg/acc.msg" />
         <option value="$PROJECT_DIR$/msg/local_position.msg" />
         <option value="$PROJECT_DIR$/msg/gimbal.msg" />
+        <option value="$PROJECT_DIR$/srv/clear_local_position.srv" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/src/dji_sdk_node.cpp" />
       </list>
     </option>
@@ -215,6 +241,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="dji_sdk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dji_sdk" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$1$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dji_sdk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="srv" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -434,7 +474,11 @@
       <envs />
       <method />
     </configuration>
-    <list size="31">
+    <configuration default="false" name="_dji_sdk_generate_messages_check_deps_set_local_position_ref" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="dji_sdk" TARGET_NAME="_dji_sdk_generate_messages_check_deps_set_local_position_ref" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <list size="32">
       <item index="0" class="java.lang.String" itemvalue="Application.Build All" />
       <item index="1" class="java.lang.String" itemvalue="Application._dji_sdk_generate_messages_check_deps_attitude_quad" />
       <item index="2" class="java.lang.String" itemvalue="Application._dji_sdk_generate_messages_check_deps_global_position" />
@@ -466,6 +510,7 @@
       <item index="28" class="java.lang.String" itemvalue="Application._dji_sdk_generate_messages_check_deps_acc" />
       <item index="29" class="java.lang.String" itemvalue="Application._dji_sdk_generate_messages_check_deps_gimbal" />
       <item index="30" class="java.lang.String" itemvalue="Application._dji_sdk_generate_messages_check_deps_local_position" />
+      <item index="31" class="java.lang.String" itemvalue="Application._dji_sdk_generate_messages_check_deps_set_local_position_ref" />
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
@@ -488,29 +533,29 @@
     <frame x="0" y="23" width="1440" height="873" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24930556" sideWeight="0.49513382" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296837" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5413625" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19097222" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19097222" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296837" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24930556" sideWeight="0.49513382" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24930556" sideWeight="0.5048662" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296837" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5413625" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296837" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -526,15 +571,95 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="5" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/Library/Caches/clion10/cmake/generated/cabc1472/cabc1472/Debug/devel/include/dji_sdk/global_position.h">
+    <entry file="file://$PROJECT_DIR$/inc/include/dji_sdk/velocity.h">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="98" column="25" selection-start-line="98" selection-start-column="25" selection-end-line="98" selection-end-column="25" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/math.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="338" column="14" selection-start-line="338" selection-start-column="14" selection-end-line="338" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/msg/global_position.msg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sdk_lib/DJI_Pro_App.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="80" column="12" selection-start-line="80" selection-start-column="12" selection-end-line="80" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dji_sdk_node.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#313#333#0" expanded="true" />
+            <element signature="e#410#428#0" expanded="true" />
+            <element signature="e#803#820#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="40" column="24" selection-start-line="40" selection-start-column="24" selection-end-line="40" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/math.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="338" column="14" selection-start-line="338" selection-start-column="14" selection-end-line="338" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sdk_lib/DJI_Pro_App.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="80" column="12" selection-start-line="80" selection-start-column="12" selection-end-line="80" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dji_sdk_node.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="96" column="22" selection-start-line="96" selection-start-column="22" selection-end-line="96" selection-end-column="22" />
+          <folding>
+            <element signature="e#313#333#0" expanded="true" />
+            <element signature="e#410#428#0" expanded="true" />
+            <element signature="e#803#820#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sdk_lib/DJI_Pro_App.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="66" column="5" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -562,7 +687,7 @@
           <folding>
             <element signature="e#313#333#0" expanded="true" />
             <element signature="e#410#428#0" expanded="true" />
-            <element signature="e#759#776#0" expanded="true" />
+            <element signature="e#803#820#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -571,7 +696,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -590,7 +714,7 @@
           <folding>
             <element signature="e#313#333#0" expanded="true" />
             <element signature="e#410#428#0" expanded="true" />
-            <element signature="e#759#776#0" expanded="true" />
+            <element signature="e#803#820#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -609,26 +733,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sdk_lib/DJI_Pro_App.cpp">
+    <entry file="file://$PROJECT_DIR$/msg/gimbal.msg">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="66" column="5" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
-          <folding />
+        <state vertical-scroll-proportion="0.023929471">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+    <entry file="file://$PROJECT_DIR$/msg/acc.msg">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Library/Caches/clion10/cmake/generated/cabc1472/cabc1472/Debug/devel/include/dji_sdk/global_position.h">
+    <entry file="file://$PROJECT_DIR$/msg/attitude_quad.msg">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="98" column="25" selection-start-line="98" selection-start-column="25" selection-end-line="98" selection-end-column="25" />
-          <folding />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/msg/local_position.msg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.071788415">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/msg/velocity.msg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.023929471">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -640,31 +776,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/sdk_lib/DJI_Pro_App.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="66" column="5" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/sdk_lib/DJI_Pro_App.h">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="82" column="21" selection-start-line="82" selection-start-column="21" selection-end-line="82" selection-end-column="21" />
+          <caret line="80" column="12" selection-start-line="80" selection-start-column="12" selection-end-line="80" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/msg/gimbal.msg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.023929471">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/msg/acc.msg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/msg/attitude_quad.msg">
+    <entry file="file://$PROJECT_DIR$/inc/include/dji_sdk/velocity.h">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -674,36 +802,54 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/msg/global_position.msg">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.023929471">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/msg/local_position.msg">
+    <entry file="file://$PROJECT_DIR$/inc/include/dji_sdk/set_local_position_refRequest.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.071788415">
-          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/msg/velocity.msg">
+    <entry file="file://$PROJECT_DIR$/inc/include/dji_sdk/set_local_position_ref.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.023929471">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+          <folding>
+            <element signature="e#1852#1883#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/srv/set_local_position_ref.srv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/dji_sdk_node.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.78463477">
-          <caret line="540" column="24" selection-start-line="540" selection-start-column="24" selection-end-line="540" selection-end-column="24" />
+        <state vertical-scroll-proportion="0.3324937">
+          <caret line="107" column="8" selection-start-line="107" selection-start-column="8" selection-end-line="107" selection-end-column="8" />
           <folding>
             <element signature="e#313#333#0" expanded="true" />
             <element signature="e#410#428#0" expanded="true" />
-            <element signature="e#759#776#0" expanded="true" />
+            <element signature="e#803#820#0" expanded="true" />
           </folding>
         </state>
       </provider>

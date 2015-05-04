@@ -25,6 +25,7 @@
 #include <dji_sdk/velocity.h>
 #include <dji_sdk/acc.h>
 #include <dji_sdk/gimbal.h>
+#include <dji_sdk/set_local_position_ref.h>
 
 // MATH for_example
 #include <math.h>
@@ -38,17 +39,26 @@
 
 using namespace ros;
 
+static float ctrl_mode = 1;
+
 // cmd agency ack func.
 void cmd_callback_fun(uint16_t *ack);
 
 void update_ros_vars();
 // ros sub from serial
-ros::Subscriber cmd_data_sub,nav_open_close_sub, ctrl_mode_sub, ctrl_data_sub, simple_task_sub, activation_sub;
-ros::Subscriber vel_sp_sub,acc_sp_sub,gimbal_sp_sub,pos_sp_sub;
+ros::Subscriber cmd_data_sub,nav_open_close_sub,
+        ctrl_mode_sub, ctrl_data_sub, simple_task_sub,
+        activation_sub;
+ros::Subscriber vel_sp_sub,acc_sp_sub,
+        gimbal_sp_sub,pos_sp_sub,
+        pos_sp,look_at_sp_sub;
 // ros pub for webserver
-ros::Publisher battery_pub, nav_ctrl_status_pub, flight_status_pub, activation_status_pub, test_fre_pub,acc_pub;
+ros::Publisher battery_pub, nav_ctrl_status_pub,
+        flight_status_pub, activation_status_pub, test_fre_pub,acc_pub;
 
-ros::Publisher gps_pub,att_quad_pub,vel_pub,local_pos_pub;
+ros::Publisher gps_pub,att_quad_pub,
+        vel_pub,local_pos_pub;
+
 
 // ros timer
 ros::Timer simple_task_timer;
@@ -73,7 +83,128 @@ std::string     enc_key;
 // activation
 static activation_data_t activation_msg = {14,2,1,""};
 
-float gimbal_yaw_control_sp = 0;
+namespace position_refs
+{
+    dji_sdk::local_position local_position_ref;
+    dji_sdk::global_position global_position_ref;
+    bool localposbase_use_height  = true;
+};
+namespace service_handles
+{
+    bool set_local_position_ref (dji_sdk::set_local_position_refRequest & req,
+                                 dji_sdk::set_local_position_refResponse&  rep
+    )
+    {
+        position_refs::localposbase_use_height = req.use_height;
+        position_refs::global_position_ref = req.base_pos;
+        ROS_INFO("set base:%f,%f\n",
+                 req.base_pos.lon,
+                 req.base_pos.lat
+        );
+        rep.success = true;
+        return true;
+    }
+
+    int init_services(ros::NodeHandle n)
+    {
+        ros::ServiceServer service =
+                n.advertiseService(
+                "set_local_position_ref",
+                set_local_position_ref
+                 );
+
+        ROS_INFO("Init services\n");
+
+        return 0;
+    }
+};
+
+/*
+namespace sers
+{
+    ros::NodeHandle n;
+    bool set_local_position_ref (dji_sdk::set_local_position_refRequest request,
+                               dji_sdk::set_local_position_refResponse repsonse
+    )
+    {
+        position_refs::localposbase_use_height = request.use_height;
+        position_refs::global_position_ref = request.base_pos;
+        ROS_INFO("set base:%f,%f\n",
+                 request.base_pos.lon,
+                 request.base_pos.lat
+        );
+        repsonse.success = true;
+    }
+    int init_services()
+    {
+        ros::ServiceServer service =
+                n.advertiseService(
+                "/set_local_position_ref",
+                set_local_position_ref
+                 );
+        return 0;
+    }
+}
+*/
+namespace gimbal
+{
+
+    float gimbal_yaw_control_sp = 0;
+    float gimbal_lookat_x,
+            gimbal_lookat_y,
+            gimbal_lookat_z;
+    bool gimbal_lookat_enable = false;
+
+    void send_gimbal_angle(float yaw,float roll,float pitch)
+    {
+        gimbal_custom_control_angle_t send_data = {0};
+
+        send_data.yaw_angle   =  floor(yaw * 10.0f);  // unit 0.1 degree
+        send_data.roll_angle  = floor(roll * 10.0f);
+        send_data.pitch_angle = floor(pitch * 10.0f);
+        send_data.duration = 10;
+        send_data.ctrl_byte.base = 1;
+        App_Send_Data(0, 0, MY_CTRL_CMD_SET,API_CTRL_GIMBAL_ANGLE, (uint8_t*)&send_data, sizeof(send_data), NULL, 0, 0);
+    }
+
+    void control(float x,float y,float z)
+    {
+
+        float dx = gimbal_lookat_x - x;
+        float dy = gimbal_lookat_y - y;
+        float dz = gimbal_lookat_z - z;
+        float theta = atan(dy/dx) * 180.0f/M_PI;
+        if (fabs(dx) < 1e-4)
+        {
+            if (dy>0)
+                theta = 90;
+            else
+                theta = -90;
+        }
+
+        if(dx<0)
+        {
+            theta = 180 - theta;
+        }
+
+        if (theta > 180)
+            theta -= 360;
+        if (theta < -180)
+            theta += 360;
+
+        float fai = atan( dz / sqrt( dx*dx + dy*dy )) * 180.0f /M_PI;
+
+
+        if (dx*dx+dy*dy<1e-2)
+        {
+           fai = 0;
+        }
+
+        gimbal::gimbal_yaw_control_sp = theta;
+        send_gimbal_angle(0,0,fai);
+
+    }
+};
 //----------------------------------------------------------
 //table of sdk req data handler
 //----------------------------------------------------------
@@ -90,6 +221,23 @@ set_handler_table_t set_handler_tab[]={
 	{0x02,cmd_handler_tab				},
 	{ERR_INDEX,NULL					}
 };
+
+/*
+void ros_ctrl_mode_callback(const std_msgs::Float32::ConstPtr& msg)
+{
+    ctrl_mode = (float) msg->data;
+    printf("mode %f\n", ctrl_mode);
+}
+*/
+
+void look_at_sp_cb(dji_sdk::local_position lop)
+{
+    gimbal::gimbal_lookat_enable = true;
+    gimbal::gimbal_lookat_x = lop.x;
+    gimbal::gimbal_lookat_y = lop.y;
+    gimbal::gimbal_lookat_z = lop.height;
+}
+
 
 //----------------------------------------------------------
 // sdk_req_data_callback
@@ -122,21 +270,7 @@ int16_t sdk_std_msgs_handler(uint8_t cmd_id,uint8_t* pbuf,uint16_t len,req_id_t 
 {
 	uint16_t *msg_enable_flag = (uint16_t *)pbuf;
 	uint16_t data_len = MSG_ENABLE_FLAG_LEN;
-/*	
-	if( (*msg_enable_flag & ENABLE_MSG_TIME))
-	{
-		uint32_t time;
-		//time = (uint32_t *)pbuf[2];
-		memcpy((uint8_t *)&time,(uint8_t *)pbuf + 2, sizeof(time));
-		//data_len += sizeof(time);
-		printf("[DEBUG] time				%d \n", time);
 
-		std_msgs::Float32 msg;
-		msg.data = 1;
-		test_fre_pub.publish(msg);
-		
-	}
-*/
 	_recv_std_msgs( *msg_enable_flag, ENABLE_MSG_TIME	, recv_sdk_std_msgs.time_stamp			, pbuf, data_len);
 	_recv_std_msgs( *msg_enable_flag, ENABLE_MSG_Q		, recv_sdk_std_msgs.q				, pbuf, data_len);
 	_recv_std_msgs( *msg_enable_flag, ENABLE_MSG_A		, recv_sdk_std_msgs.a				, pbuf, data_len);
@@ -160,18 +294,6 @@ int16_t sdk_std_msgs_handler(uint8_t cmd_id,uint8_t* pbuf,uint16_t len,req_id_t 
 		
 	}
 
-/*	
-	printf("[DEBUG] msg_enable_flag 		%04X \n",*msg_enable_flag);
-	printf("[DEBUG] len          			%d   \n",len);
-	for(int i = 0; i < len; i++)
-	{
-		printf(" %02X |", pbuf[i]);
-	}
-	printf("\n");
-	printf("[DEBUG] recv_sdk_std_msgs.time          %d   \n",recv_sdk_std_msgs.time_stamp);
-	printf("[DEBUG] recv_sdk_std_msgs.status        %d   \n",recv_sdk_std_msgs.status);
-	printf("[DEBUG] recv_sdk_std_msgs.battey        %d   \n",recv_sdk_std_msgs.battery_remaining_capacity);
-*/
 }
 
 // app_example
@@ -179,16 +301,6 @@ int16_t sdk_std_msgs_handler(uint8_t cmd_id,uint8_t* pbuf,uint16_t len,req_id_t 
 // mode_test
 void test_activation_ack_cmd_callback(ProHeader *header)
 {
-	/*
-		#define	ACTIVATION_SUCCESS		0x0000
-		#define PARAM_ERROR			0x0001
-		#define DATA_ENC_ERROR			0x0002
-		#define NEW_DEVICE_TRY_AGAIN		0x0003
-		#define DJI_APP_TIMEOUT			0x0004
-		#define DJI_APP_NO_INTERNET		0x0005
-		#define SERVER_REFUSED			0x0006
-		#define LEVEL_ERROR			0x0007
-	*/ 
 	uint16_t ack_data;
 	printf("Sdk_ack_cmd0_callback,sequence_number=%d,session_id=%d,data_len=%d\n", header->sequence_number, header->session_id, header->length - EXC_DATA_SIZE);
 	memcpy((uint8_t *)&ack_data,(uint8_t *)&header->magic, (header->length - EXC_DATA_SIZE));
@@ -280,7 +392,7 @@ void sdk_ack_nav_open_close_callback(ProHeader *header)
 {
 	uint16_t ack_data;
 	printf("call %s\n",__func__);
-	printf("Recv ACK,sequence_number=%d,session_id=%d,data_len=%d\n", header->sequence_number, header->session_id, header->length - EXC_DATA_SIZE);
+//	printf("Recv ACK,sequence_number=%d,session_id=%d,data_len=%d\n", header->sequence_number, header->session_id, header->length - EXC_DATA_SIZE);
 	memcpy((uint8_t *)&ack_data,(uint8_t *)&header->magic, (header->length - EXC_DATA_SIZE));
 
 	std_msgs::Float32 msg;
@@ -321,26 +433,23 @@ void vel_sp_cb(const dji_sdk::velocity& msg)
     send_data.roll_or_x 	= msg.velx;
     send_data.pitch_or_y 	= msg.vely;
     send_data.thr_z 	= msg.velz; //m/s
-    send_data.yaw 		= gimbal_yaw_control_sp;
+    send_data.yaw 		= gimbal::gimbal_yaw_control_sp;
 
     App_Send_Data(0, 0, MY_CTRL_CMD_SET, API_CTRL_REQUEST, (uint8_t*)&send_data, sizeof(send_data), NULL, 0, 0);
 }
 
+
 void gimbal_sp_cb(const dji_sdk::gimbal gimbal)
 {
 
-    gimbal_custom_control_angle_t send_data = {0};
+    gimbal::gimbal_yaw_control_sp = gimbal.yaw;
+    gimbal::gimbal_lookat_enable = false;
+    gimbal::send_gimbal_angle(
+            0,gimbal.roll,gimbal.pitch
+    );
 
-    gimbal_yaw_control_sp = gimbal.yaw;
-    send_data.yaw_angle   =  0;//floor(gimbal.yaw * 10.0f);  // unit 0.1 degree
-    send_data.roll_angle  = floor(gimbal.roll * 10.0f);
-    send_data.pitch_angle = floor(gimbal.pitch * 10.0f);
-    send_data.duration = 10;
-    send_data.ctrl_byte.base = 1;
-    App_Send_Data(0, 0, MY_CTRL_CMD_SET,API_CTRL_GIMBAL_ANGLE, (uint8_t*)&send_data, sizeof(send_data), NULL, 0, 0);
 }
 
-dji_sdk::local_position local_position_ref;
 
 void local_pos_sp_cb(const dji_sdk::local_position lo)
 {
@@ -348,10 +457,10 @@ void local_pos_sp_cb(const dji_sdk::local_position lo)
 
 
     send_data.ctrl_flag 	= 0x90; // mode 4
-    send_data.roll_or_x 	= lo.x - local_position_ref.x;
-    send_data.pitch_or_y 	= lo.y - local_position_ref.y;
+    send_data.roll_or_x 	= lo.x - position_refs::local_position_ref.x;
+    send_data.pitch_or_y 	= lo.y - position_refs::local_position_ref.y;
     send_data.thr_z 	= lo.height; //m/s
-    send_data.yaw 		= gimbal_yaw_control_sp ;
+    send_data.yaw 		= gimbal::gimbal_yaw_control_sp ;
 
     App_Send_Data(0, 0, MY_CTRL_CMD_SET, API_CTRL_REQUEST, (uint8_t*)&send_data, sizeof(send_data), NULL, 0, 0);
 }
@@ -374,7 +483,6 @@ void gps_convert_ned(float & ned_x,float & ned_y,
 
     return;
 }
-dji_sdk::global_position global_position_ref;
 void update_ros_vars()
 {
     dji_sdk::attitude_quad attitude_quad;
@@ -400,7 +508,7 @@ void update_ros_vars()
     // FIX BUG about flying at lat = 0
     if (global_position.ts != 0 && seted == 0 && global_position.lat != 0)
     {
-        global_position_ref = global_position;
+        position_refs::global_position_ref = global_position;
         seted = 1;
     }
 
@@ -418,15 +526,23 @@ void update_ros_vars()
             local_position.y,
             global_position.lon,
             global_position.lat,
-            global_position_ref.lon,
-            global_position_ref.lat
+            position_refs::global_position_ref.lon,
+            position_refs::global_position_ref.lat
     );
 
 
     local_position.height = global_position.height;
     local_position.ts = global_position.ts;
+    position_refs::local_position_ref = local_position;
 
-    local_position_ref = local_position;
+    if (gimbal::gimbal_lookat_enable)
+    {
+        gimbal::control(
+               local_position.x,
+               local_position.y,
+               local_position.height
+        );
+    }
 
     local_pos_pub.publish(local_position);
 
@@ -540,7 +656,7 @@ int main (int argc, char** argv)
 	ctrl_data_sub		= nh.subscribe("/sdk_request_ctrl", 10, ros_ctrl_data_callback);
 	simple_task_sub		= nh.subscribe("/sdk_request_simple_task", 10, ros_simple_task_callback);
      */
-    ctrl_mode_sub		= nh.subscribe("/sdk_request_ctrl_mode", 10, ros_ctrl_mode_callback);
+//    ctrl_mode_sub		= nh.subscribe("/sdk_request_ctrl_mode", 10, ros_ctrl_mode_callback);
 
     cmd_data_sub 		= nh.subscribe("/sdk_request_cmd", 10, ros_cmd_data_callback);
 	activation_sub		= nh.subscribe("/sdk_request_activation", 10, ros_activation_callback);
@@ -549,6 +665,11 @@ int main (int argc, char** argv)
     vel_sp_sub = nh.subscribe("/velocity_setpoint",10,vel_sp_cb);
     gimbal_sp_sub = nh.subscribe("/gimbal_setpoint",10,gimbal_sp_cb);
     pos_sp_sub = nh.subscribe("/local_position_setpoint",10,local_pos_sp_cb);
+    look_at_sp_sub = nh.subscribe(
+            "/lookat_setpoint",
+            10,
+            look_at_sp_cb
+    );
 
 	// start ros publisher
     battery_pub 		= nh.advertise<std_msgs::Float32>("/battery_status", 10);
@@ -565,6 +686,8 @@ int main (int argc, char** argv)
     gps_pub = nh.advertise<dji_sdk::global_position>("/global_position",10);
     local_pos_pub = nh.advertise<dji_sdk::local_position>("/local_position",10);
     vel_pub = nh.advertise<dji_sdk::velocity>("/velocity",10);
+
+    service_handles::init_services(nh);
 
 
 	// ros timer 50Hz
