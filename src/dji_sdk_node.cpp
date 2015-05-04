@@ -105,7 +105,7 @@ namespace service_handles
         return true;
     }
 
-    int init_services(ros::NodeHandle n)
+    int init_services(ros::NodeHandle  n)
     {
         ros::ServiceServer service =
                 n.advertiseService(
@@ -118,34 +118,6 @@ namespace service_handles
         return 0;
     }
 };
-
-/*
-namespace sers
-{
-    ros::NodeHandle n;
-    bool set_local_position_ref (dji_sdk::set_local_position_refRequest request,
-                               dji_sdk::set_local_position_refResponse repsonse
-    )
-    {
-        position_refs::localposbase_use_height = request.use_height;
-        position_refs::global_position_ref = request.base_pos;
-        ROS_INFO("set base:%f,%f\n",
-                 request.base_pos.lon,
-                 request.base_pos.lat
-        );
-        repsonse.success = true;
-    }
-    int init_services()
-    {
-        ros::ServiceServer service =
-                n.advertiseService(
-                "/set_local_position_ref",
-                set_local_position_ref
-                 );
-        return 0;
-    }
-}
-*/
 namespace gimbal
 {
 
@@ -373,7 +345,7 @@ void cmd_callback_fun(uint16_t *ack)
 void ros_cmd_data_callback(const std_msgs::Float32::ConstPtr& msg)
 {
 	uint8_t send_data = (uint8_t)msg->data;
-	printf("cmd %d\n", send_data);
+//	printf("cmd %d\n", send_data);
 	if( send_data > 21)
 		return;
 
@@ -384,7 +356,7 @@ void ros_cmd_data_callback(const std_msgs::Float32::ConstPtr& msg)
 	}
 	else
 	{
-		printf("[CMD] wating! \n");
+//		printf("[CMD] wating! \n");
 	}
 }
 

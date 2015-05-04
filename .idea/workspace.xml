@@ -66,8 +66,8 @@
           <file leaf-file-name="dji_sdk_node.cpp" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/dji_sdk_node.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.3324937">
-                  <caret line="107" column="8" selection-start-line="107" selection-start-column="8" selection-end-line="107" selection-end-column="8" />
+                <state vertical-scroll-proportion="0.119647354">
+                  <caret line="107" column="38" selection-start-line="107" selection-start-column="38" selection-end-line="107" selection-end-column="38" />
                   <folding>
                     <element signature="e#313#333#0" expanded="true" />
                     <element signature="e#410#428#0" expanded="true" />
@@ -141,9 +141,6 @@
                   <folding>
                     <element signature="e#313#333#0" expanded="true" />
                     <element signature="e#803#820#0" expanded="true" />
-                    <marker date="1430725616000" expanded="true" signature="2998:3722" placeholder="{...}" />
-                    <marker date="1430725616000" expanded="true" signature="3194:3491" placeholder="{...}" />
-                    <marker date="1430725616000" expanded="true" signature="3520:3720" placeholder="{...}" />
                   </folding>
                 </state>
               </provider>
@@ -844,8 +841,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/dji_sdk_node.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3324937">
-          <caret line="107" column="8" selection-start-line="107" selection-start-column="8" selection-end-line="107" selection-end-column="8" />
+        <state vertical-scroll-proportion="0.119647354">
+          <caret line="107" column="38" selection-start-line="107" selection-start-column="38" selection-end-line="107" selection-end-column="38" />
           <folding>
             <element signature="e#313#333#0" expanded="true" />
             <element signature="e#410#428#0" expanded="true" />
