@@ -89,6 +89,7 @@ namespace position_refs
     dji_sdk::global_position global_position_ref;
     bool localposbase_use_height  = true;
 };
+
 namespace service_handles
 {
     bool set_local_position_ref (dji_sdk::set_local_position_refRequest & req,
@@ -105,19 +106,20 @@ namespace service_handles
         return true;
     }
 
+    ros::ServiceServer local_pos_ref;
     int init_services(ros::NodeHandle  n)
     {
-        ros::ServiceServer service =
-                n.advertiseService(
+        local_pos_ref = n.advertiseService(
                 "set_local_position_ref",
                 set_local_position_ref
-                 );
+        );
 
         ROS_INFO("Init services\n");
 
         return 0;
     }
 };
+
 namespace gimbal
 {
 
