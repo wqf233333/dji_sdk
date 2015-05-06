@@ -9,6 +9,7 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
    message_generation
 )
+find_package(PythonLibs "${PYTHON_VERSION_MAJOR}.${PYTHON_VERSION_MINOR}" REQUIRED)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -39,6 +40,10 @@ find_package(catkin REQUIRED COMPONENTS
  add_service_files(
    FILES
    set_local_position_ref.srv
+   set_lookat_local.srv
+   set_gimbal_angles.srv
+   set_velocity.srv
+   fly_to_local.srv
  )
 
 ## Generate actions in the 'action' folder
@@ -87,7 +92,11 @@ file(GLOB DJI_SDK_LIB_SOURCES src/sdk_lib/*.cpp)
 
 include_directories(
   ${catkin_INCLUDE_DIRS}
-  "${PROJECT_SOURCE_DIR}/src/sdk_lib"
+  "${PROJECT_SOURCE_DIR}/src/"
+  "${PROJECT_SOURCE_DIR}/include"
+  ../../devel/include
+  ex_include/
+
 )
 
 ## Declare a cpp library
@@ -96,12 +105,23 @@ include_directories(
 # ) 
 
 ## Declare a cpp executable
-add_executable(dji_sdk_node src/dji_sdk_node.cpp ${DJI_SDK_LIB_SOURCES})
+add_executable(dji_sdk_node src/dji_sdk_node.cpp
+ src/modules/dji_gimbal.cpp
+ src/modules/dji_services.cpp
+ src/modules/dji_locals.cpp
+ src/modules/dji_subscribers.cpp
+ ${DJI_SDK_LIB_SOURCES}
+  src/modules/dji_services.cpp
+  include/dji_sdk/dji_services.h
+  src/modules/dji_publishers.cpp
+   include/dji_sdk/dji_publishers.h
+   include/dji_sdk/dji_subscribers.h
+ src/modules/motion_controls.cpp
+ )
 
 ## Add cmake target dependencies of the executable/library
 ## as an example, message headers may need to be generated before nodes
-## add_dependencies(dji_sdk_node dji_sdk_generate_messages_cpp)
-include_directories(inc/include)
+add_dependencies(dji_sdk_node dji_sdk_generate_messages_cpp)
 
 ## Specify libraries to link a library or executable target against
 target_link_libraries(dji_sdk_node

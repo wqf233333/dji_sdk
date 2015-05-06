@@ -57,10 +57,14 @@ int SerialConfig(int baudrate,char data_bits,char parity_bits,char stop_bits)
 		B38400,
 		B57600,
 		B115200,
-		B230400,
+		B230400
+		/*
+		 * TODO:FIX for all platform
+		 * ,
 		B1000000,
 		B1152000,
 		B3000000,
+             */
 	};
 	int std_rate[]=
 	{
