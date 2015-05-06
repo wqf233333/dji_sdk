@@ -45,7 +45,7 @@
 typedef float 	fp32;
 typedef double	fp64;
 
-typedef struct
+typedef struct __attribute__((packed))
 {
 	uint8_t ctrl_flag;
 	fp32 	roll_or_x;
@@ -166,12 +166,13 @@ typedef struct
 	fp32	z;
 }sdk_3_12B_data_t;
 
-typedef struct
+typedef struct __attribute__((packed))
 {
 	fp64	lati;
 	fp64	longti;
 	fp32	alti;
 	fp32	height;
+    uint8_t health_flag;
 }sdk_4_24B_data_t;
 
 typedef struct

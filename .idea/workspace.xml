@@ -5,39 +5,39 @@
       <config projectName="dji_sdk" targetName="_dji_sdk_generate_messages_check_deps_attitude_quad_sp" />
       <config projectName="dji_sdk" targetName="_dji_sdk_generate_messages_check_deps_set_velocity" />
       <config projectName="dji_sdk" targetName="_dji_sdk_generate_messages_check_deps_global_position" />
-      <config projectName="dji_sdk" targetName="dji_sdk_generate_messages_py" />
       <config projectName="dji_sdk" targetName="doxygen" />
       <config projectName="dji_sdk" targetName="rosgraph_msgs_generate_messages_py" />
       <config projectName="dji_sdk" targetName="tests" />
-      <config projectName="dji_sdk" targetName="dji_sdk_gencpp" />
+      <config projectName="dji_sdk" targetName="dji_sdk_node" />
+      <config projectName="dji_sdk" targetName="rosgraph_msgs_generate_messages_lisp" />
       <config projectName="dji_sdk" targetName="_dji_sdk_generate_messages_check_deps_attitude_euler_sp" />
       <config projectName="dji_sdk" targetName="rosgraph_msgs_generate_messages_cpp" />
       <config projectName="dji_sdk" targetName="_dji_sdk_generate_messages_check_deps_fly_to_local" />
-      <config projectName="dji_sdk" targetName="_dji_sdk_generate_messages_check_deps_set_local_position_ref" />
-      <config projectName="dji_sdk" targetName="std_msgs_generate_messages_cpp" />
       <config projectName="dji_sdk" targetName="_dji_sdk_generate_messages_check_deps_velocity" />
-      <config projectName="dji_sdk" targetName="roscpp_generate_messages_cpp" />
-      <config projectName="dji_sdk" targetName="std_msgs_generate_messages_lisp" />
-      <config projectName="dji_sdk" targetName="_dji_sdk_generate_messages_check_deps_set_lookat" />
-      <config projectName="dji_sdk" targetName="dji_sdk_node" />
-      <config projectName="dji_sdk" targetName="dji_sdk_generate_messages" />
-      <config projectName="dji_sdk" targetName="_dji_sdk_generate_messages_check_deps_acc" />
-      <config projectName="dji_sdk" targetName="dji_sdk_generate_messages_lisp" />
-      <config projectName="dji_sdk" targetName="rosgraph_msgs_generate_messages_lisp" />
-      <config projectName="dji_sdk" targetName="_dji_sdk_generate_messages_check_deps_attitude_quad" />
-      <config projectName="dji_sdk" targetName="roscpp_generate_messages_lisp" />
-      <config projectName="dji_sdk" targetName="_dji_sdk_generate_messages_check_deps_set_lookat_local" />
-      <config projectName="dji_sdk" targetName="_dji_sdk_generate_messages_check_deps_set_gimbal_angles" />
-      <config projectName="dji_sdk" targetName="std_msgs_generate_messages_py" />
-      <config projectName="dji_sdk" targetName="clean_test_results" />
-      <config projectName="dji_sdk" targetName="dji_sdk_genlisp" />
-      <config projectName="dji_sdk" targetName="roscpp_generate_messages_py" />
+      <config projectName="dji_sdk" targetName="std_msgs_generate_messages_cpp" />
       <config projectName="dji_sdk" targetName="dji_sdk_genpy" />
+      <config projectName="dji_sdk" targetName="roscpp_generate_messages_cpp" />
+      <config projectName="dji_sdk" targetName="dji_sdk_generate_messages_py" />
+      <config projectName="dji_sdk" targetName="_dji_sdk_generate_messages_check_deps_set_lookat" />
+      <config projectName="dji_sdk" targetName="std_msgs_generate_messages_lisp" />
+      <config projectName="dji_sdk" targetName="dji_sdk_gencpp" />
+      <config projectName="dji_sdk" targetName="_dji_sdk_generate_messages_check_deps_acc" />
+      <config projectName="dji_sdk" targetName="roscpp_generate_messages_py" />
+      <config projectName="dji_sdk" targetName="dji_sdk_generate_messages_lisp" />
+      <config projectName="dji_sdk" targetName="_dji_sdk_generate_messages_check_deps_gimbal" />
+      <config projectName="dji_sdk" targetName="_dji_sdk_generate_messages_check_deps_attitude_quad" />
+      <config projectName="dji_sdk" targetName="dji_sdk_generate_messages" />
+      <config projectName="dji_sdk" targetName="_dji_sdk_generate_messages_check_deps_set_gimbal_angles" />
+      <config projectName="dji_sdk" targetName="roscpp_generate_messages_lisp" />
+      <config projectName="dji_sdk" targetName="dji_sdk_genlisp" />
+      <config projectName="dji_sdk" targetName="clean_test_results" />
+      <config projectName="dji_sdk" targetName="_dji_sdk_generate_messages_check_deps_set_local_position_ref" />
       <config projectName="dji_sdk" targetName="dji_sdk_generate_messages_cpp" />
       <config projectName="dji_sdk" targetName="run_tests" />
-      <config projectName="dji_sdk" targetName="_dji_sdk_generate_messages_check_deps_velocity_sp" />
       <config projectName="dji_sdk" targetName="_dji_sdk_generate_messages_check_deps_local_position" />
-      <config projectName="dji_sdk" targetName="_dji_sdk_generate_messages_check_deps_gimbal" />
+      <config projectName="dji_sdk" targetName="_dji_sdk_generate_messages_check_deps_velocity_sp" />
+      <config projectName="dji_sdk" targetName="std_msgs_generate_messages_py" />
+      <config projectName="dji_sdk" targetName="_dji_sdk_generate_messages_check_deps_set_lookat_local" />
     </generated>
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="false" GENERATION_PASS_SYSTEM_ENVIRONMENT="true">
@@ -68,11 +68,11 @@
     <splitter split-orientation="horizontal" split-proportion="0.5069444">
       <split-first>
         <leaf>
-          <file leaf-file-name="dji_services.cpp" pinned="false" current-in-tab="false">
+          <file leaf-file-name="dji_services.cpp" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/modules/dji_services.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="21" column="31" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
+                <state vertical-scroll-proportion="-1.115869">
+                  <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
                   <folding>
                     <element signature="e#39#72#0" expanded="true" />
                   </folding>
@@ -80,10 +80,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="dji_sdk_node.cpp" pinned="false" current-in-tab="true">
+          <file leaf-file-name="dji_sdk_node.cpp" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/dji_sdk_node.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-1.6926953">
+                <state vertical-scroll-proportion="0.0">
                   <caret line="286" column="3" selection-start-line="286" selection-start-column="3" selection-end-line="286" selection-end-column="3" />
                   <folding>
                     <element signature="e#0#25#0" expanded="true" />
@@ -102,18 +102,58 @@
               </provider>
             </entry>
           </file>
+          <file leaf-file-name="dji_gimbal.cpp" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/modules/dji_gimbal.cpp">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="dji_publishers.cpp" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/modules/dji_publishers.cpp">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="4" column="34" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
         </leaf>
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="motion_controls.cpp" pinned="false" current-in-tab="true">
+          <file leaf-file-name="motion_controls.cpp" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/modules/motion_controls.cpp">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="0" column="1" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
+                  <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
                   <folding>
                     <element signature="e#39#75#0" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="DJI_Pro_App.h" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/sdk_lib/DJI_Pro_App.h">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.26196474">
+                  <caret line="168" column="14" selection-start-line="168" selection-start-column="14" selection-end-line="168" selection-end-column="14" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="DJI_Pro_App.cpp" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/sdk_lib/DJI_Pro_App.cpp">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="175" column="12" selection-start-line="175" selection-start-column="12" selection-end-line="175" selection-end-column="12" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -159,7 +199,6 @@
         <option value="$PROJECT_DIR$/msg/velocity_sp.msg" />
         <option value="$PROJECT_DIR$/msg/attitude_quad_sp.msg" />
         <option value="$PROJECT_DIR$/msg/attitude_euler_sp.msg" />
-        <option value="$PROJECT_DIR$/src/sdk_lib/DJI_Pro_App.h" />
         <option value="$PROJECT_DIR$/msg/acc.msg" />
         <option value="$PROJECT_DIR$/msg/local_position.msg" />
         <option value="$PROJECT_DIR$/msg/gimbal.msg" />
@@ -193,10 +232,11 @@
         <option value="$PROJECT_DIR$/launch/sdk_demo.launch" />
         <option value="$PROJECT_DIR$/launch/sdk_osx.launch" />
         <option value="$PROJECT_DIR$/include/dji_sdk/dji_gimbal.h" />
-        <option value="$PROJECT_DIR$/src/modules/motion_controls.cpp" />
-        <option value="$PROJECT_DIR$/src/modules/dji_services.cpp" />
         <option value="$PROJECT_DIR$/src/modules/dji_gimbal.cpp" />
         <option value="$PROJECT_DIR$/src/dji_sdk_node.cpp" />
+        <option value="$PROJECT_DIR$/src/modules/dji_services.cpp" />
+        <option value="$PROJECT_DIR$/src/modules/motion_controls.cpp" />
+        <option value="$PROJECT_DIR$/src/sdk_lib/DJI_Pro_App.h" />
       </list>
     </option>
   </component>
@@ -289,116 +329,7 @@
     </navigator>
     <panes>
       <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dji_sdk" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$1$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dji_sdk" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$1$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dji_sdk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dji_sdk" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$1$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dji_sdk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="srv" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dji_sdk" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$1$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dji_sdk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dji_sdk" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$1$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dji_sdk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dji_sdk" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$1$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dji_sdk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="msg" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dji_sdk" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$1$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dji_sdk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="launch" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dji_sdk" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$1$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dji_sdk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="include" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dji_sdk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
+        <subPane />
       </pane>
     </panes>
   </component>
@@ -636,7 +567,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -802,13 +733,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sdk_lib/DJI_Pro_App.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31486145">
-          <caret line="159" column="0" selection-start-line="159" selection-start-column="0" selection-end-line="159" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sdk_lib/DJI_Pro_Link.h">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -834,13 +758,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.14105794">
           <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sdk_lib/DJI_Pro_App.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.6120907">
-          <caret line="80" column="12" selection-start-line="80" selection-start-column="12" selection-end-line="80" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -880,14 +797,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="93" column="58" selection-start-line="93" selection-start-column="58" selection-end-line="93" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/dji_publishers.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="34" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
           <folding />
         </state>
       </provider>
@@ -1025,31 +934,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/motion_controls.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="1" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
-          <folding>
-            <element signature="e#39#75#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/srv/set_local_position_ref.srv">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.08060453">
           <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/dji_gimbal.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.63727957">
-          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1061,23 +950,65 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/dji_services.cpp">
+    <entry file="file://$PROJECT_DIR$/src/dji_sdk_node.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="31" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
+          <caret line="286" column="3" selection-start-line="286" selection-start-column="3" selection-end-line="286" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/dji_gimbal.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/dji_publishers.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="34" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/dji_services.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.115869">
+          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding>
             <element signature="e#39#72#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dji_sdk_node.cpp">
+    <entry file="file://$PROJECT_DIR$/src/modules/motion_controls.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.6926953">
-          <caret line="286" column="3" selection-start-line="286" selection-start-column="3" selection-end-line="286" selection-end-column="3" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
           <folding>
-            <element signature="e#0#25#0" expanded="true" />
+            <element signature="e#39#75#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sdk_lib/DJI_Pro_App.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="175" column="12" selection-start-line="175" selection-start-column="12" selection-end-line="175" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sdk_lib/DJI_Pro_App.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.26196474">
+          <caret line="168" column="14" selection-start-line="168" selection-start-column="14" selection-end-line="168" selection-end-column="14" />
+          <folding />
         </state>
       </provider>
     </entry>
