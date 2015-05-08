@@ -34,6 +34,7 @@ find_package(PythonLibs "${PYTHON_VERSION_MAJOR}.${PYTHON_VERSION_MINOR}" REQUIR
    acc.msg
    gimbal.msg
    local_position.msg
+   rc_channels.msg
  )
 
 ## Generate services in the 'srv' folder
@@ -91,11 +92,11 @@ file(GLOB DJI_SDK_LIB_SOURCES src/sdk_lib/*.cpp)
 
 
 include_directories(
+  ex_include/
   ${catkin_INCLUDE_DIRS}
   "${PROJECT_SOURCE_DIR}/src/"
   "${PROJECT_SOURCE_DIR}/include"
   ../../devel/include
-  ex_include/
 
 )
 

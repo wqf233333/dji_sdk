@@ -1,0 +1,6 @@
+#zero point
+dji_sdk/global_position base_pos
+#use height or alti
+bool use_height
+---
+bool success

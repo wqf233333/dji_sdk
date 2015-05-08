@@ -1,0 +1,4 @@
+#look at point
+dji_sdk/local_position target
+---
+bool sucess
