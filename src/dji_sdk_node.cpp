@@ -1,5 +1,6 @@
 #include "dji_sdk_node.h"
 #include <dji_sdk/dji_ros_modules.h>
+#include <sdk_lib/DJI_Pro_App.h>
 
 //----------------------------------------------------------
 //table of sdk req data handler
@@ -242,6 +243,8 @@ void update_ros_vars()
     dji_sdk::local_position local_position;
     dji_sdk::velocity velocity;
     dji_sdk::acc acc;
+    dji_sdk::rc_channels rc_channels;
+
 
     attitude_quad.q0 = recv_sdk_std_msgs.q.q0;
     attitude_quad.q1 = recv_sdk_std_msgs.q.q1;
@@ -294,6 +297,14 @@ void update_ros_vars()
         );
     }
 
+    rc_channels.pitch = recv_sdk_std_msgs.rc.pitch;
+    rc_channels.roll = recv_sdk_std_msgs.rc.roll;
+    rc_channels.mode = recv_sdk_std_msgs.rc.mode;
+    rc_channels.gear_up = recv_sdk_std_msgs.rc.gear_up;
+    rc_channels.throttle = recv_sdk_std_msgs.rc.throttle;
+    rc_channels.yaw = recv_sdk_std_msgs.rc.yaw;
+
+
     publishers::local_pos_pub.publish(local_position);
 
     publishers::att_quad_pub.publish(attitude_quad);
@@ -303,6 +314,8 @@ void update_ros_vars()
     publishers::vel_pub.publish(velocity);
 
     publishers::acc_pub.publish(acc);
+
+    publishers::rc_channels_pub.publish(rc_channels);
 }
 
 

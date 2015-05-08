@@ -11,6 +11,7 @@
 #include <dji_sdk/velocity.h>
 #include <dji_sdk/acc.h>
 #include <dji_sdk/gimbal.h>
+#include <dji_sdk/rc_channels.h>
 
 namespace  publishers
 {
@@ -18,7 +19,7 @@ namespace  publishers
             flight_status_pub, activation_status_pub, test_fre_pub, acc_pub;
 
     ros::Publisher gps_pub, att_quad_pub,
-            vel_pub, local_pos_pub;
+            vel_pub, local_pos_pub,rc_channels_pub;
 
     int init_publishers(ros::NodeHandle &nh)
     {
@@ -37,6 +38,9 @@ namespace  publishers
         publishers::gps_pub = nh.advertise<dji_sdk::global_position>("/global_position", 10);
         publishers::local_pos_pub = nh.advertise<dji_sdk::local_position>("/local_position", 10);
         publishers::vel_pub = nh.advertise<dji_sdk::velocity>("/velocity", 10);
+
+
+        rc_channels_pub = nh.advertise<dji_sdk::rc_channels>("/rc_channels",10);
 
     }
 };

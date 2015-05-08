@@ -46,8 +46,8 @@ namespace service_handles
         gimbal::gimbal_lookat_enable = false;
         gimbal::gimbal_yaw_control_sp = request.gimbal_sp.yaw;
         gimbal::send_gimbal_angle(
-//                request.gimbal_sp.yaw,
-                0,
+                request.gimbal_sp.yaw,
+//                0,
                 request.gimbal_sp.roll,
                 request.gimbal_sp.pitch
         );

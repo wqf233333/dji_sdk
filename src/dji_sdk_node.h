@@ -17,6 +17,7 @@
 #include <dji_sdk/velocity.h>
 #include <dji_sdk/acc.h>
 #include <dji_sdk/gimbal.h>
+#include <dji_sdk/rc_channels.h>
 
 // MATH for_example
 #include <math.h>

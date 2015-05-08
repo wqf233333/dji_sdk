@@ -15,6 +15,8 @@ namespace  publishers
     extern ros::Publisher gps_pub, att_quad_pub,
             vel_pub, local_pos_pub;
 
+    extern ros::Publisher rc_channels_pub;
+
     int init_publishers(ros::NodeHandle & nh);
 };
 

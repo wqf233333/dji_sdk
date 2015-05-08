@@ -182,6 +182,7 @@ typedef struct
 	int16_t	yaw;
 	int16_t	throttle;
 	int16_t	mode;
+    int16_t	gear_up;
 }sdk_5_10B_data_t;
 
 typedef struct
