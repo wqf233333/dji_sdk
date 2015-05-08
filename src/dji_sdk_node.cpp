@@ -349,8 +349,10 @@ void spin_callback(const ros::TimerEvent &e)
         printf("[STD_MSGS] pos %f %f %f %f \n", recv_sdk_std_msgs.pos.lati, recv_sdk_std_msgs.pos.longti,
                recv_sdk_std_msgs.pos.alti, recv_sdk_std_msgs.pos.height);
         printf("[STD_MSGS] mag %d %d %d \n", recv_sdk_std_msgs.mag.x, recv_sdk_std_msgs.mag.y, recv_sdk_std_msgs.mag.z);
-        printf("[STD_MSGS] rc %d %d %d %d %d\n", recv_sdk_std_msgs.rc.roll, recv_sdk_std_msgs.rc.pitch,
-               recv_sdk_std_msgs.rc.yaw, recv_sdk_std_msgs.rc.throttle, recv_sdk_std_msgs.rc.mode);
+        printf("[STD_MSGS] rc %d %d %d %d %d %d\n", recv_sdk_std_msgs.rc.roll, recv_sdk_std_msgs.rc.pitch,
+               recv_sdk_std_msgs.rc.yaw, recv_sdk_std_msgs.rc.throttle, recv_sdk_std_msgs.rc.mode,
+               recv_sdk_std_msgs.rc.gear_up
+        );
         printf("[STD_MSGS] gimbal %f %f %f\n", recv_sdk_std_msgs.gimbal.x, recv_sdk_std_msgs.gimbal.y,
                recv_sdk_std_msgs.gimbal.z);
         printf("[STD_MSGS] status %d\n", recv_sdk_std_msgs.status);

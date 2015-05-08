@@ -11,7 +11,10 @@
 #include <dji_sdk/velocity.h>
 #include <dji_sdk/acc.h>
 #include <dji_sdk/gimbal.h>
+<<<<<<< Updated upstream
 #include <dji_sdk/rc_channels.h>
+=======
+>>>>>>> Stashed changes
 
 namespace  publishers
 {
@@ -19,7 +22,11 @@ namespace  publishers
             flight_status_pub, activation_status_pub, test_fre_pub, acc_pub;
 
     ros::Publisher gps_pub, att_quad_pub,
+<<<<<<< Updated upstream
             vel_pub, local_pos_pub,rc_channels_pub;
+=======
+            vel_pub, local_pos_pub;
+>>>>>>> Stashed changes
 
     int init_publishers(ros::NodeHandle &nh)
     {
@@ -39,8 +46,11 @@ namespace  publishers
         publishers::local_pos_pub = nh.advertise<dji_sdk::local_position>("/local_position", 10);
         publishers::vel_pub = nh.advertise<dji_sdk::velocity>("/velocity", 10);
 
+<<<<<<< Updated upstream
 
         rc_channels_pub = nh.advertise<dji_sdk::rc_channels>("/rc_channels",10);
 
+=======
+>>>>>>> Stashed changes
     }
 };
