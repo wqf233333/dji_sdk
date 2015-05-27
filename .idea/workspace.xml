@@ -6,7 +6,11 @@
       <config projectName="dji_sdk" targetName="_dji_sdk_generate_messages_check_deps_set_velocity" />
       <config projectName="dji_sdk" targetName="_dji_sdk_generate_messages_check_deps_global_position" />
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       <config projectName="dji_sdk" targetName="roscpp_generate_messages_py" />
+=======
+      <config projectName="dji_sdk" targetName="dji_sdk_generate_messages_py" />
+>>>>>>> Stashed changes
 =======
       <config projectName="dji_sdk" targetName="dji_sdk_generate_messages_py" />
 >>>>>>> Stashed changes
@@ -27,7 +31,10 @@
       <config projectName="dji_sdk" targetName="dji_sdk_generate_messages" />
       <config projectName="dji_sdk" targetName="_dji_sdk_generate_messages_check_deps_acc" />
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       <config projectName="dji_sdk" targetName="_dji_sdk_generate_messages_check_deps_rc_channels" />
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
       <config projectName="dji_sdk" targetName="dji_sdk_generate_messages_lisp" />
@@ -74,6 +81,7 @@
   </component>
   <component name="FileEditorManager">
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     <splitter split-orientation="horizontal" split-proportion="0.5769896">
       <split-first>
         <leaf>
@@ -83,6 +91,11 @@
     <splitter split-orientation="horizontal" split-proportion="0.68125">
       <split-first>
         <leaf>
+=======
+    <splitter split-orientation="horizontal" split-proportion="0.68125">
+      <split-first>
+        <leaf>
+>>>>>>> Stashed changes
           <file leaf-file-name="dji_services.cpp" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/modules/dji_services.cpp">
               <provider selected="true" editor-type-id="text-editor">
@@ -250,6 +263,7 @@
         <option value="$PROJECT_DIR$/include/dji_sdk/dji_gimbal.h" />
         <option value="$PROJECT_DIR$/src/modules/dji_gimbal.cpp" />
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         <option value="$PROJECT_DIR$/src/modules/motion_controls.cpp" />
         <option value="$PROJECT_DIR$/src/sdk_lib/DJI_Pro_App.h" />
         <option value="$PROJECT_DIR$/msg/rc_channels.msg" />
@@ -258,12 +272,17 @@
         <option value="$PROJECT_DIR$/src/modules/dji_publishers.cpp" />
         <option value="$PROJECT_DIR$/src/dji_sdk_node.h" />
         <option value="$PROJECT_DIR$/src/dji_sdk_node.cpp" />
+=======
+>>>>>>> Stashed changes
         <option value="$PROJECT_DIR$/src/modules/dji_services.cpp" />
 =======
         <option value="$PROJECT_DIR$/src/modules/dji_services.cpp" />
         <option value="$PROJECT_DIR$/src/modules/motion_controls.cpp" />
         <option value="$PROJECT_DIR$/src/sdk_lib/DJI_Pro_App.h" />
         <option value="$PROJECT_DIR$/src/dji_sdk_node.cpp" />
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
       </list>
     </option>
@@ -727,6 +746,9 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19722222" sideWeight="0.49513382" order="0" side_tool="false" content_ui="combo" />
 =======
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19722222" sideWeight="0.49513382" order="0" side_tool="false" content_ui="combo" />
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24930556" sideWeight="0.5048662" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -966,6 +988,9 @@
 =======
         <state vertical-scroll-proportion="0.0">
           <caret line="93" column="58" selection-start-line="93" selection-start-column="58" selection-end-line="93" selection-end-column="58" />
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         </state>
       </provider>
@@ -985,6 +1010,9 @@
 =======
         <state vertical-scroll-proportion="0.14105794">
           <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         </state>
       </provider>
@@ -1031,6 +1059,9 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
 =======
           <caret line="0" column="6" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         </state>
       </provider>
@@ -1049,6 +1080,9 @@
           <caret line="93" column="58" selection-start-line="93" selection-start-column="58" selection-end-line="93" selection-end-column="58" />
 =======
           <caret line="3" column="83" selection-start-line="3" selection-start-column="83" selection-end-line="3" selection-end-column="83" />
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         </state>
       </provider>
@@ -1068,6 +1102,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-20.88">
           <caret line="114" column="0" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         </state>
       </provider>
@@ -1094,6 +1131,9 @@
 =======
         <state vertical-scroll-proportion="0.040302265">
           <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         </state>
       </provider>
@@ -1123,12 +1163,16 @@
 =======
         <state vertical-scroll-proportion="0.08060453">
           <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
         <state vertical-scroll-proportion="0.0">
           <caret line="94" column="2" selection-start-line="94" selection-start-column="2" selection-end-line="94" selection-end-column="2" />
@@ -1147,6 +1191,10 @@
         <state vertical-scroll-proportion="0.3324937">
           <caret line="334" column="14" selection-start-line="334" selection-start-column="14" selection-end-line="334" selection-end-column="14" />
 >>>>>>> Stashed changes
+=======
+        <state vertical-scroll-proportion="0.3324937">
+          <caret line="334" column="14" selection-start-line="334" selection-start-column="14" selection-end-line="334" selection-end-column="14" />
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
@@ -1158,6 +1206,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/src/dji_sdk_node.h">
       <provider selected="true" editor-type-id="text-editor">
@@ -1184,6 +1233,8 @@
           <caret line="49" column="4" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
           <folding />
 =======
+=======
+>>>>>>> Stashed changes
     <entry file="file://$PROJECT_DIR$/src/modules/dji_services.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1227,10 +1278,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/dji_publishers.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="34" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/sdk_lib/DJI_Pro_App.h">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.14609572">
           <caret line="203" column="25" selection-start-line="203" selection-start-column="25" selection-end-line="203" selection-end-column="25" />
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
           <folding />
         </state>

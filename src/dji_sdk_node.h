@@ -17,10 +17,7 @@
 #include <dji_sdk/velocity.h>
 #include <dji_sdk/acc.h>
 #include <dji_sdk/gimbal.h>
-<<<<<<< Updated upstream
 #include <dji_sdk/rc_channels.h>
-=======
->>>>>>> Stashed changes
 
 // MATH for_example
 #include <math.h>
