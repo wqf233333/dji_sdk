@@ -428,8 +428,6 @@ int main(int argc, char **argv)
     printf("[INIT]    enc_key	  %s \n", key);
 
 
-    gimbal::fp = fopen("/data/gimbal.txt","w");
-
     publishers::init_publishers(nh);
     service_handles::init_services(nh);
     init_subscibers(nh);

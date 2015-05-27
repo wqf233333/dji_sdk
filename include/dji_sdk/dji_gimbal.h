@@ -12,8 +12,6 @@ namespace gimbal
             gimbal_lookat_y,
             gimbal_lookat_z;
 
-    extern FILE * fp;
-
     extern bool gimbal_lookat_enable;
 
     void send_gimbal_angle(float yaw,float roll,float pitch);

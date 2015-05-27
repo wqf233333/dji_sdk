@@ -6,7 +6,6 @@
 
 namespace gimbal
 {
-    FILE * fp;
 
     float gimbal_yaw_control_sp = 0;
     float gimbal_lookat_x,
