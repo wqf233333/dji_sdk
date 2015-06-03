@@ -1,6 +1,7 @@
 #include "dji_sdk_node.h"
 #include <dji_sdk/dji_ros_modules.h>
 #include <sdk_lib/DJI_Pro_App.h>
+#include <dji_sdk/mavlink_connector.h>
 
 //----------------------------------------------------------
 //table of sdk req data handler
@@ -235,16 +236,9 @@ void gps_convert_ned(float &ned_x, float &ned_y,
 
     return;
 }
-
+using namespace dji_variable;
 void update_ros_vars()
 {
-    dji_sdk::attitude_quad attitude_quad;
-    dji_sdk::global_position global_position;
-    dji_sdk::local_position local_position;
-    dji_sdk::velocity velocity;
-    dji_sdk::acc acc;
-    dji_sdk::rc_channels rc_channels;
-
 
     attitude_quad.q0 = recv_sdk_std_msgs.q.q0;
     attitude_quad.q1 = recv_sdk_std_msgs.q.q1;
@@ -262,7 +256,7 @@ void update_ros_vars()
     //TODO:
     // FIX BUG about flying at lat = 0
     if (global_position.ts != 0 && seted == 0 && global_position.lat != 0) {
-        position_refs::global_position_ref = global_position;
+        dji_variable::global_position_ref = global_position;
         seted = 1;
     }
 
@@ -280,14 +274,14 @@ void update_ros_vars()
             local_position.y,
             global_position.lon,
             global_position.lat,
-            position_refs::global_position_ref.lon,
-            position_refs::global_position_ref.lat
+            dji_variable::global_position_ref.lon,
+            dji_variable::global_position_ref.lat
     );
 
 
     local_position.height = global_position.height;
     local_position.ts = global_position.ts;
-    position_refs::local_position_ref = local_position;
+    dji_variable::local_position_ref = local_position;
 
     if (gimbal::gimbal_lookat_enable) {
         gimbal::control(
@@ -326,6 +320,8 @@ void spin_callback(const ros::TimerEvent &e)
 {
 
     update_ros_vars();
+
+    mavlink_adapter::loop_callback(recv_sdk_std_msgs.time_stamp);
 
     static unsigned int count = 0;
     count++;

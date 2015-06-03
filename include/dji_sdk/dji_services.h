@@ -5,7 +5,7 @@
 #ifndef DJI_SDK_DJI_SERVICES_H
 #define DJI_SDK_DJI_SERVICES_H
 
-#include "dji_locals.h"
+#include "dji_variable.h"
 #include <ros/ros.h>
 
 namespace service_handles

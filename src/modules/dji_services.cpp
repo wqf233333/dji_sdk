@@ -18,8 +18,8 @@ namespace service_handles
                                 dji_sdk::set_local_position_refResponse &rep
     )
     {
-        position_refs::localposbase_use_height = req.use_height;
-        position_refs::global_position_ref = req.base_pos;
+        dji_variable::localposbase_use_height = req.use_height;
+        dji_variable::global_position_ref = req.base_pos;
         ROS_INFO("set base:%f,%f\n",
                  req.base_pos.lon,
                  req.base_pos.lat

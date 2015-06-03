@@ -1,8 +1,7 @@
 #ifndef __DJI_SDK_MOTION_CONTROLS_H__
 #define __DJI_SDK_MOTION_CONTROLS_H__
 
-#include "motion_controls.h"
-#include "../../../../devel/include/dji_sdk/velocity.h"
+#include "dji_sdk/velocity.h"
 #include <ros/ros.h>
 #include <dji_sdk/local_position.h>
 

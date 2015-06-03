@@ -9,20 +9,8 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
    message_generation
 )
+
 find_package(PythonLibs "${PYTHON_VERSION_MAJOR}.${PYTHON_VERSION_MINOR}" REQUIRED)
-
-## System dependencies are found with CMake's conventions
-# find_package(Boost REQUIRED COMPONENTS system)
-
-
-## Uncomment this if the package has a setup.py. This macro ensures
-## modules and global scripts declared therein get installed
-## See http://ros.org/doc/api/catkin/html/user_guide/setup_dot_py.html
-# catkin_python_setup()
-
-################################################
-## Declare ROS messages, services and actions ##
-################################################
 
 
 ## Generate messages in the 'msg' folder
@@ -60,15 +48,6 @@ generate_messages(
    std_msgs
  )
 
-###################################
-## catkin specific configuration ##
-###################################
-## The catkin_package macro generates cmake config files for your package
-## Declare things to be passed to dependent projects
-## INCLUDE_DIRS: uncomment this if you package contains header files
-## LIBRARIES: libraries you create in this project that dependent projects also need
-## CATKIN_DEPENDS: catkin_packages dependent projects also need
-## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
   INCLUDE_DIRS include
   LIBRARIES dji_sdk
@@ -76,48 +55,33 @@ catkin_package(
   DEPENDS system_lib
 )
  
-###########
-## Build ##  
-###########
-
-## Specify additional locations of header files
-## Your package locations should be listed before other locations
-# include_directories(include)
 
 file(GLOB DJI_SDK_LIB_SOURCES src/sdk_lib/*.cpp) 
 
-##SET_SOURCE_FILES_PROPERTIES(${DJI_SDK_LIB_SOURCES} PROPERTIES LANGUAGE CXX)
-
-
-
 
 include_directories(
-  ex_include/
   ${catkin_INCLUDE_DIRS}
   "${PROJECT_SOURCE_DIR}/src/"
   "${PROJECT_SOURCE_DIR}/include"
   ../../devel/include
-
+  ex_include/
 )
-
-## Declare a cpp library
-# add_library(dji_sdk
-#   src/${PROJECT_NAME}/dji_sdk.cpp
-# ) 
 
 ## Declare a cpp executable
 add_executable(dji_sdk_node src/dji_sdk_node.cpp
- src/modules/dji_gimbal.cpp
- src/modules/dji_services.cpp
- src/modules/dji_locals.cpp
- src/modules/dji_subscribers.cpp
- ${DJI_SDK_LIB_SOURCES}
+    src/modules/dji_gimbal.cpp
+    src/modules/dji_services.cpp
+    src/modules/dji_variable.cpp
+    src/modules/dji_subscribers.cpp
+    ${DJI_SDK_LIB_SOURCES}
   src/modules/dji_services.cpp
   include/dji_sdk/dji_services.h
   src/modules/dji_publishers.cpp
    include/dji_sdk/dji_publishers.h
    include/dji_sdk/dji_subscribers.h
  src/modules/motion_controls.cpp
+ src/modules/dji_mavlink_adapter.cpp
+ src/modules/mavlink_connector.cpp
  )
 
 ## Add cmake target dependencies of the executable/library
@@ -128,6 +92,3 @@ add_dependencies(dji_sdk_node dji_sdk_generate_messages_cpp)
 target_link_libraries(dji_sdk_node
    ${catkin_LIBRARIES}
 )
-
-
-
