@@ -22,9 +22,8 @@
 #include <vector>
 #include "dji_sdk/mavlink_connector.h"
 
-namespace sdk_handle
+namespace mavlink_adapter
 {
-    using namespace mavlink_adapter;
     mavlink_connector mav("192.168.1.106",8888);
     void loop_callback(long timestamp)
     {
