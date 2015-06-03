@@ -9,6 +9,7 @@
 #include "dji_sdk/mavlink_connector.h"
 #include <dji_mavlink/dji_sdk_onboard/mavlink.h>
 #include <dji_sdk/attitude_quad.h>
+#include <codecvt>
 #include "dji_sdk/dji_variable.h"
 
 namespace mavlink_adapter
@@ -48,10 +49,46 @@ namespace mavlink_adapter
         return 0;
     }
 
-    void mavlink_connector::send()
+    void mavlink_connector::slow_send()
     {
+
+        mavlink_gps_raw_int_t gps_raw_int_t;
+        mavlink_battery_status_t battery_status_t;
+        mavlink_rc_channels_t rc_channels_t;
+
+        mavlink_message_t msg;
+
+
+        gps_raw_int_t.lat = (int32_t)(dji_variable::global_position_degree.lat * 1e7) ;
+        gps_raw_int_t.lon = (int32_t)(dji_variable::global_position_degree.lon * 1e7);
+        gps_raw_int_t.alt = (int32_t)(dji_variable::global_position_degree.alti * 1000);
+
+        mavlink_msg_gps_raw_int_encode(0,200,&msg,&gps_raw_int_t);
+        send_msg(&msg);
+
+        mavlink_heartbeat_t heartbeat_t;
+        heartbeat_t.system_status = MAV_STATE_ACTIVE;
+        heartbeat_t.base_mode = MAV_MODE_FLAG_MANUAL_INPUT_ENABLED;
+        heartbeat_t.autopilot = MAV_AUTOPILOT_GENERIC;
+        heartbeat_t.type = MAV_TYPE_QUADROTOR;
+        mavlink_msg_heartbeat_encode(0,200,&msg,&heartbeat_t);
+        send_msg(&msg);
+
+        battery_status_t.battery_remaining = dji_variable::battery;
+        for (int i = 0 ;i< 6;i++)
+            battery_status_t.voltages[i] = (uint16_t)((float)dji_variable::battery  / 100.0f * 22.2 * 1000);
+
+        mavlink_msg_battery_status_encode(0,200,&msg,&battery_status_t);
+        send_msg(&msg);
+
+    }
+
+    void mavlink_connector::fast_send()
+    {
+
         mavlink_attitude_quaternion_t att;
         mavlink_local_position_ned_t pos;
+        mavlink_global_position_int_t global_position_int_t;
         mavlink_message_t msg;
 
         att.q1 = dji_variable::attitude_quad.q0;
@@ -72,11 +109,21 @@ namespace mavlink_adapter
         pos.vz = dji_variable::velocity.velz;
 
 
+        global_position_int_t.lat = (int32_t)(dji_variable::global_position_degree.lat * 1e7) ;
+        global_position_int_t.lon = (int32_t)(dji_variable::global_position_degree.lon * 1e7);
+        global_position_int_t.alt = (int32_t)(dji_variable::global_position_degree.alti * 1000);
+        global_position_int_t.relative_alt =(int32_t) (dji_variable::global_position_degree.height * 1000);
+        global_position_int_t.vx = (int16_t)(pos.vx * 100);
+        global_position_int_t.vy = (int16_t)(pos.vy * 100);
+        global_position_int_t.vz = (int16_t)(pos.vz * 100);
+
+
         mavlink_msg_attitude_quaternion_encode(0, 200, &msg, &att);
         send_msg(&msg);
         mavlink_msg_local_position_ned_encode(0, 200, &msg, &pos);
         send_msg(&msg);
-
+        mavlink_msg_global_position_int_encode(0,200,&msg,&global_position_int_t);
+        send_msg(&msg);
     }
 
     int mavlink_connector::send_msg(mavlink_message_t * msg)

@@ -40,7 +40,8 @@ namespace mavlink_adapter
     public:
         mavlink_connector(std::string ip,int port);
 
-        void send();
+        void slow_send();
+        void fast_send();
     };
 };
 

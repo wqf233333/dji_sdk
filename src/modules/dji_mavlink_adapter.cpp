@@ -24,9 +24,15 @@
 
 namespace mavlink_adapter
 {
-    mavlink_connector mav("192.168.1.106",8888);
+    mavlink_connector mav("127.0.0.1",14550);
+//    mavlink_connector mav("100.65.9.7",7777);
     void loop_callback(long timestamp)
     {
-        mav.send();
+        mav.fast_send();
+        static int k = 0;
+        if (k++ % 50 == 0)
+        {
+            mav.slow_send();
+        }
     }
 }

@@ -252,6 +252,11 @@ void update_ros_vars()
     global_position.alti = recv_sdk_std_msgs.pos.alti;
     global_position.ts = recv_sdk_std_msgs.time_stamp;
 
+    global_position_degree = global_position;
+
+    global_position_degree.lat = global_position.lat * 180.0f /M_PI;
+    global_position_degree.lon = global_position.lon * 180.0f /M_PI;
+
     static int seted = 0;
     //TODO:
     // FIX BUG about flying at lat = 0
@@ -298,6 +303,8 @@ void update_ros_vars()
     rc_channels.throttle = recv_sdk_std_msgs.rc.throttle;
     rc_channels.yaw = recv_sdk_std_msgs.rc.yaw;
 
+    battery = recv_sdk_std_msgs.battery_remaining_capacity;
+//    recv_sdk_std_msgs.status
 
     publishers::local_pos_pub.publish(local_position);
 

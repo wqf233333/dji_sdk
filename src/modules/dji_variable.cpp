@@ -12,5 +12,7 @@ namespace dji_variable
     dji_sdk::acc acc;
     dji_sdk::rc_channels rc_channels;
     dji_sdk::global_position global_position;
+    dji_sdk::global_position global_position_degree;
     dji_sdk::local_position local_position;
+    float battery = 0;
 };
