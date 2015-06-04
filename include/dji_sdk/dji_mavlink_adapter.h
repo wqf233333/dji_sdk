@@ -1,4 +1,5 @@
 #include "dji_mavlink/dji_sdk_onboard/mavlink.h"
+#include <string>
 
 namespace mavlink_adapter
 {
