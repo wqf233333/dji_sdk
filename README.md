@@ -30,4 +30,4 @@ Using javascipt with node-js and ros-js to control DJI Onboard SDK.Will provide 
 Thanks for help with DJI guys,they are Paul Yang, Jiahang Yin, Mingxi Wang.
 
 # License
-MIT and USING THIS SOFTWARE MEANS YOU WILL NOT LAUGH AT THE BAD ENGLISH LEVEL OF DEVELOPER/
+MIT and USING THIS SOFTWARE MEANS YOU WILL NOT LAUGH AT THE BAD ENGLISH LEVEL OF DEVELOPER :)
