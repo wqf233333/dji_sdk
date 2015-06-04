@@ -9,7 +9,6 @@
 #include "dji_sdk/mavlink_connector.h"
 #include <dji_mavlink/dji_sdk_onboard/mavlink.h>
 #include <dji_sdk/attitude_quad.h>
-#include <codecvt>
 #include "dji_sdk/dji_variable.h"
 
 namespace mavlink_adapter
