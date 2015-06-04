@@ -305,6 +305,9 @@ void update_ros_vars()
     rc_channels.throttle = recv_sdk_std_msgs.rc.throttle;
     rc_channels.yaw = recv_sdk_std_msgs.rc.yaw;
 
+    ctrl_device = recv_sdk_std_msgs.ctrl_device;
+    flight_status = recv_sdk_std_msgs.status;
+
     battery = recv_sdk_std_msgs.battery_remaining_capacity;
 //    recv_sdk_std_msgs.status
 

@@ -11,6 +11,15 @@
 #include <dji_sdk/attitude_quad.h>
 #include "dji_sdk/dji_variable.h"
 #include "dji_sdk/dji_commands.h"
+#include "sdk_lib/sdk_lib.h"
+
+#define FLIGHT_STATUS_UNKNOWN 0
+#define FLIGHT_STATUS_STANDBY 1
+#define FLIGHT_STATUS_TAKINGOFF 2
+#define FLIGHT_STATUS_INAIR 3
+#define FLIGHT_STATUS_LANDING 4
+#define FLIGHT_STATUS_POSTLANDING 5
+
 
 namespace mavlink_adapter
 {
@@ -46,6 +55,28 @@ namespace mavlink_adapter
 
         return 0;
     }
+    mavlink_heartbeat_t * mavlink_connector::make_heartbeat()
+    {
+        heartbeat_t->system_status = MAV_STATE_ACTIVE;
+
+        switch (dji_variable::flight_status) {
+            case FLIGHT_STATUS_LANDING:
+            case FLIGHT_STATUS_POSTLANDING:
+            case FLIGHT_STATUS_TAKINGOFF:
+                heartbeat_t->base_mode = MAV_MODE_AUTO_ARMED;
+                break;
+            case FLIGHT_STATUS_INAIR:
+                heartbeat_t->base_mode = MAV_MODE_MANUAL_ARMED;
+                break;
+            default:
+                heartbeat_t->base_mode = MAV_MODE_MANUAL_DISARMED;
+        }
+
+        heartbeat_t->autopilot = MAV_AUTOPILOT_GENERIC;
+        heartbeat_t->type = MAV_TYPE_QUADROTOR;
+        heartbeat_t->mavlink_version = 3;
+        return heartbeat_t;
+    }
 
     void mavlink_connector::slow_send()
     {
@@ -64,12 +95,8 @@ namespace mavlink_adapter
         mavlink_msg_gps_raw_int_encode(0,200,&msg,&gps_raw_int_t);
         send_msg(&msg);
 
-        mavlink_heartbeat_t heartbeat_t;
-        heartbeat_t.system_status = MAV_STATE_ACTIVE;
-        heartbeat_t.base_mode = MAV_MODE_FLAG_GUIDED_ENABLED|MAV_MODE_GUIDED_ARMED;
-        heartbeat_t.autopilot = MAV_AUTOPILOT_GENERIC;
-        heartbeat_t.type = MAV_TYPE_QUADROTOR;
-        mavlink_msg_heartbeat_encode(0,200,&msg,&heartbeat_t);
+
+        mavlink_msg_heartbeat_encode(0,200,&msg,make_heartbeat());
         send_msg(&msg);
 //        printf("sended heartbeating......\n");
 
@@ -78,6 +105,25 @@ namespace mavlink_adapter
             battery_status_t.voltages[i] = (uint16_t)((float)dji_variable::battery  / 100.0f * 22.2 * 1000);
 
         mavlink_msg_battery_status_encode(0,200,&msg,&battery_status_t);
+        send_msg(&msg);
+
+        mavlink_sys_status_t sys_status_t;
+        memset(&sys_status_t,0, sizeof(sys_status_t));
+        sys_status_t.battery_remaining = dji_variable::battery;
+        sys_status_t.voltage_battery = 222 * dji_variable::battery ;
+
+        mavlink_msg_sys_status_encode(0,200,&msg,&sys_status_t);
+        send_msg(&msg);
+
+        mavlink_rc_channels_scaled_t rc_channels_scaled_t;
+        rc_channels_scaled_t.chan1_scaled = dji_variable::rc_channels.roll;
+        rc_channels_scaled_t.chan2_scaled = dji_variable::rc_channels.pitch;
+        rc_channels_scaled_t.chan3_scaled = dji_variable::rc_channels.throttle;
+        rc_channels_scaled_t.chan4_scaled = dji_variable::rc_channels.yaw;
+        rc_channels_scaled_t.chan5_scaled = dji_variable::rc_channels.mode;
+        rc_channels_scaled_t.chan6_scaled = dji_variable::rc_channels.gear_up;
+
+        mavlink_msg_rc_channels_scaled_encode(0,200,&msg,&rc_channels_scaled_t);
         send_msg(&msg);
 
     }
@@ -123,6 +169,7 @@ namespace mavlink_adapter
         send_msg(&msg);
         mavlink_msg_global_position_int_encode(0,200,&msg,&global_position_int_t);
         send_msg(&msg);
+
     }
 
     int mavlink_connector::send_msg(mavlink_message_t * msg)
@@ -143,6 +190,7 @@ namespace mavlink_adapter
     mavlink_connector::mavlink_connector(std::string ip, int port)
     {
         init_network(ip, port);
+        heartbeat_t = new mavlink_heartbeat_t;
     }
 
    void mavlink_connector::handle_mavlink(char *buffer, int len)
@@ -161,6 +209,7 @@ namespace mavlink_adapter
         switch (msg->msgid)
         {
             case MAVLINK_MSG_ID_HEARTBEAT:
+                printf("I can hear you heart\n");
                 break;
             case MAVLINK_MSG_ID_COMMAND_LONG:
                 handle_command_long(msg);
@@ -175,7 +224,7 @@ namespace mavlink_adapter
         mavlink_msg_command_long_decode(msg,&cmd);
         switch(cmd.command)
         {
-            case MAV_CMD_NAV_TAKEOF:
+            case MAV_CMD_NAV_TAKEOFF:
                 dji_commands::set_takeoff();
                 printf("recv takeof..\n");
                 break;

@@ -24,6 +24,8 @@ namespace dji_variable
     extern dji_sdk::global_position global_position_degree;
     extern dji_sdk::local_position local_position;
     extern float battery;
+    extern uint8_t  flight_status;
+    extern uint8_t ctrl_device;
 };
 
 #endif

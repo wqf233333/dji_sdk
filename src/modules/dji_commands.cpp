@@ -1,11 +1,13 @@
-#include <dji_sdk_node.h>
+//#include <dji_sdk_node.h>
+#include <std_msgs/Float32.h>
 #include "dji_sdk/dji_ros_modules.h"
 
-extern static uint8_t cmd_send_flag = 1;
 
 namespace dji_commands
 {
-    void cmd_takeoff_send_cb(uint16_t *ack)
+    uint8_t cmd_send_flag = 1;
+    template <int CMD>
+    void cmd_send_cb(uint16_t *ack)
     {
         /*
         *	#define	REQ_TIME_OUT			0x0000
@@ -18,9 +20,8 @@ namespace dji_commands
         uint16_t ack_data = *ack;
 
         if (is_sys_error(ack_data)) {
-            printf("[DEBUG] SDK_SYS_ERROR!!! \n");
             std_msgs::Float32 msg;
-            msg.data = NO_AUTHORITY;
+            msg.data = 8;
             publishers::activation_status_pub.publish(msg);
         }
         else {
@@ -39,12 +40,12 @@ namespace dji_commands
     void set_takeoff()
     {
         uint8_t send_data = 4;
-        printf("cmd %d\n", send_data);
+        printf("cmd send:%d\n", send_data);
         if (send_data > 21)
             return;
 
         if (cmd_send_flag) {
-            App_Complex_Send_Cmd(send_data, cmd_callback_fun);
+            App_Complex_Send_Cmd(send_data, cmd_send_cb<MAV_CMD_NAV_TAKEOFF>);
             cmd_send_flag = 0;
         }
         else {
@@ -55,12 +56,12 @@ namespace dji_commands
     void set_land()
     {
         uint8_t send_data = 6;
-        printf("cmd %d\n", send_data);
+        printf("cmd send :%d\n", send_data);
         if (send_data > 21)
             return;
 
         if (cmd_send_flag) {
-            App_Complex_Send_Cmd(send_data, cmd_callback_fun);
+            App_Complex_Send_Cmd(send_data, cmd_send_cb<MAV_CMD_NAV_LAND>);
             cmd_send_flag = 0;
         }
         else {
@@ -76,7 +77,7 @@ namespace dji_commands
             return;
 
         if (cmd_send_flag) {
-            App_Complex_Send_Cmd(send_data, cmd_callback_fun);
+            App_Complex_Send_Cmd(send_data, cmd_send_cb<MAV_CMD_NAV_LOITER_TIME>);
             cmd_send_flag = 0;
         }
         else {
@@ -92,7 +93,7 @@ namespace dji_commands
             return;
 
         if (cmd_send_flag) {
-            App_Complex_Send_Cmd(send_data, cmd_callback_fun);
+            App_Complex_Send_Cmd(send_data, cmd_send_cb<MAV_CMD_NAV_RETURN_TO_LAUNCH>);
             cmd_send_flag = 0;
         }
         else {

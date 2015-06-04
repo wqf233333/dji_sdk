@@ -50,6 +50,10 @@ namespace mavlink_adapter
 
         void handle_command_long(mavlink_message_t * msg);
 
+        mavlink_heartbeat_t * heartbeat_t;
+
+        mavlink_heartbeat_t * make_heartbeat();
+
     public:
         mavlink_connector(std::string ip,int port);
 

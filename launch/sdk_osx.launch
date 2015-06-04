@@ -8,5 +8,7 @@
 		<param name="app_version" type="int" value="1"/>
 		<param name="app_bundle_id" type="string" value="12345678901234567890123456789012"/>
 		<param name="enc_key" type="string" value="DJI-DEMO AES256 KEY-lala-haha-MA"/>	
+		<param name="mavlink_ip" type = "string" value = "100.65.9.61" />
+		<param name="mavlink_port" type = "int" value = "14550" />
 	</node>
 </launch>
