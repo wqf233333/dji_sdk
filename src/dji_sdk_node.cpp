@@ -413,6 +413,14 @@ int main(int argc, char **argv)
     nh_private.param("enc_key", enc_key,
                      std::string("9b7c15ee8dc3849976a779b37cdec9fe4c6308af5a03b3a570b8dc0e3c7337b8"));
 
+    std::string mavlink_ip;
+    int port;
+
+    nh_private.param("mavlink_ip",mavlink_ip,std::string("127.0.0.1"));
+    nh_private.param("mavlink_port",port,14550);
+
+    mavlink_adapter::set_mavlink(mavlink_ip,port);
+
     activation_msg.app_id = (uint32_t) app_id;
     activation_msg.app_sdk_level = (uint32_t) app_sdk_level;
     activation_msg.app_ver = (uint32_t) app_version;

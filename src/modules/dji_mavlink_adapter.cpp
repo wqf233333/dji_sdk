@@ -24,15 +24,19 @@
 
 namespace mavlink_adapter
 {
-    mavlink_connector mav("127.0.0.1",14550);
+    mavlink_connector * mav = nullptr;
+    void set_mavlink(std::string _tty,int _port)
+    {
+       mav = new mavlink_connector(_tty,_port);
+    }
 //    mavlink_connector mav("100.65.9.7",7777);
     void loop_callback(long timestamp)
     {
-        mav.fast_send();
+        mav -> fast_send();
         static int k = 0;
         if (k++ % 50 == 0)
         {
-            mav.slow_send();
+            mav -> slow_send();
         }
     }
 }
