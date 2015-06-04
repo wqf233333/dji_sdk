@@ -84,6 +84,7 @@ add_executable(dji_sdk_node src/dji_sdk_node.cpp
  src/modules/motion_controls.cpp
  src/modules/dji_mavlink_adapter.cpp
  src/modules/mavlink_connector.cpp
+ src/modules/dji_commands.cpp
  )
 
 ## Add cmake target dependencies of the executable/library

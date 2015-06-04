@@ -10,6 +10,7 @@
 #include <dji_mavlink/dji_sdk_onboard/mavlink.h>
 #include <dji_sdk/attitude_quad.h>
 #include "dji_sdk/dji_variable.h"
+#include "dji_sdk/dji_commands.h"
 
 namespace mavlink_adapter
 {
@@ -174,15 +175,18 @@ namespace mavlink_adapter
         mavlink_msg_command_long_decode(msg,&cmd);
         switch(cmd.command)
         {
-            case MAV_CMD_NAV_TAKEOFF:
+            case MAV_CMD_NAV_TAKEOF:
+                dji_commands::set_takeoff();
                 printf("recv takeof..\n");
                 break;
 
             case MAV_CMD_NAV_LAND:
+                dji_commands::set_land();
                 printf("land mode..\n");
                 break;
 
             case MAV_CMD_NAV_RETURN_TO_LAUNCH:
+                dji_commands::set_return2home();
                 printf("return to home\n");
                 break;
 

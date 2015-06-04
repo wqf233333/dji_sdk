@@ -7,5 +7,6 @@
 #include "dji_services.h"
 #include "dji_subscribers.h"
 #include "dji_mavlink_adapter.h"
+#include "dji_commands.h"
 
 #endif
