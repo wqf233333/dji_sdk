@@ -1,4 +1,4 @@
 *.cpp~
-.idea/
+/.idea/
 .DS_Store
-exinclude
+/exinclude
