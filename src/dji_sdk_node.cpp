@@ -2,6 +2,8 @@
 #include <dji_sdk/dji_ros_modules.h>
 #include <sdk_lib/DJI_Pro_App.h>
 #include <dji_sdk/mavlink_connector.h>
+#include <thread>
+#include <functional>
 
 //----------------------------------------------------------
 //table of sdk req data handler
@@ -420,6 +422,10 @@ int main(int argc, char **argv)
     nh_private.param("mavlink_port",port,14550);
 
     mavlink_adapter::set_mavlink(mavlink_ip,port);
+    std::thread th_rec([&]{
+       mavlink_adapter::recv_function();
+    }
+    );
 
     activation_msg.app_id = (uint32_t) app_id;
     activation_msg.app_sdk_level = (uint32_t) app_sdk_level;

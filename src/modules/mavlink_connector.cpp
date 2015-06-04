@@ -21,10 +21,6 @@ namespace mavlink_adapter
             printf("Socket Create failed");
         }
 
-
-        if ((socket_s = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP)) == -1)
-            printf("Failed");
-
         memset((char *) &si_other, 0, sizeof(si_other));
         si_other.sin_family = AF_INET;
         si_other.sin_port = htons(port);
@@ -33,6 +29,8 @@ namespace mavlink_adapter
         }
 
         printf("build udp 2 %s via port %d\n", ip.c_str(), port);
+
+        addr_len = sizeof(struct sockaddr_in);
     }
 
 
@@ -67,11 +65,12 @@ namespace mavlink_adapter
 
         mavlink_heartbeat_t heartbeat_t;
         heartbeat_t.system_status = MAV_STATE_ACTIVE;
-        heartbeat_t.base_mode = MAV_MODE_FLAG_MANUAL_INPUT_ENABLED;
+        heartbeat_t.base_mode = MAV_MODE_FLAG_GUIDED_ENABLED|MAV_MODE_GUIDED_ARMED;
         heartbeat_t.autopilot = MAV_AUTOPILOT_GENERIC;
         heartbeat_t.type = MAV_TYPE_QUADROTOR;
         mavlink_msg_heartbeat_encode(0,200,&msg,&heartbeat_t);
         send_msg(&msg);
+//        printf("sended heartbeating......\n");
 
         battery_status_t.battery_remaining = dji_variable::battery;
         for (int i = 0 ;i< 6;i++)
@@ -133,8 +132,67 @@ namespace mavlink_adapter
         return 0;
     }
 
+    void mavlink_connector::recv()
+    {
+        bzero(rec_buffer,sizeof(rec_buffer));
+        int len =(int) recvfrom(socket_s,(void*)rec_buffer,sizeof(rec_buffer), 0 , (struct sockaddr *)&si_other ,(socklen_t *)&addr_len);
+        handle_mavlink(rec_buffer,len);
+    }
+
     mavlink_connector::mavlink_connector(std::string ip, int port)
     {
         init_network(ip, port);
     }
+
+   void mavlink_connector::handle_mavlink(char *buffer, int len)
+   {
+       mavlink_message_t msg;
+       mavlink_status_t status;
+       for (ssize_t i = 0; i < len; i++) {
+           if (mavlink_parse_char(MAVLINK_COMM_1, buffer[i], &msg, &status)) {
+               handle_message(&msg);
+           }
+       }
+   }
+
+    void mavlink_connector::handle_message(mavlink_message_t *msg)
+    {
+        switch (msg->msgid)
+        {
+            case MAVLINK_MSG_ID_HEARTBEAT:
+                break;
+            case MAVLINK_MSG_ID_COMMAND_LONG:
+                handle_command_long(msg);
+            default:
+                printf("msg !!!!!!%d\n",msg->msgid);
+        }
+    }
+
+    void mavlink_connector::handle_command_long(mavlink_message_t *msg)
+    {
+        mavlink_command_long_t cmd;
+        mavlink_msg_command_long_decode(msg,&cmd);
+        switch(cmd.command)
+        {
+            case MAV_CMD_NAV_TAKEOFF:
+                printf("recv takeof..\n");
+                break;
+
+            case MAV_CMD_NAV_LAND:
+                printf("land mode..\n");
+                break;
+
+            case MAV_CMD_NAV_RETURN_TO_LAUNCH:
+                printf("return to home\n");
+                break;
+
+
+        }
+    }
+
+    void mavlink_connector::handle_local_position_sp(mavlink_message_t *msg)
+    {
+        printf("setted \n");
+    }
+
 };

@@ -26,6 +26,10 @@ namespace mavlink_adapter
 {
     class mavlink_connector
     {
+
+//        struct sockaddr_in addr;
+        int addr_len;
+
         int socket_s;
         struct sockaddr_in si_other;
 
@@ -36,12 +40,22 @@ namespace mavlink_adapter
         int send_msg(mavlink_message_t *msg);
 
         char buffer[1024];
+        char rec_buffer[1024];
+
+        void handle_mavlink(char * buffer,int len);
+
+        void handle_message(mavlink_message_t * msg);
+
+        void handle_local_position_sp(mavlink_message_t* msg);
+
+        void handle_command_long(mavlink_message_t * msg);
 
     public:
         mavlink_connector(std::string ip,int port);
 
         void slow_send();
         void fast_send();
+        void recv();
     };
 };
 

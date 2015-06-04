@@ -12,6 +12,8 @@ find_package(catkin REQUIRED COMPONENTS
 
 find_package(PythonLibs "${PYTHON_VERSION_MAJOR}.${PYTHON_VERSION_MINOR}" REQUIRED)
 
+set(CMAKE_CXX_FLAGS "-std=c++11 ${CMAKE_CXX_FLAGS}")
+
 
 ## Generate messages in the 'msg' folder
  add_message_files(

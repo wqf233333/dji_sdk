@@ -39,4 +39,13 @@ namespace mavlink_adapter
             mav -> slow_send();
         }
     }
+    void recv_function()
+    {
+        printf("starting recving....\n");
+        while(true)
+        {
+            if (mav != nullptr)
+                mav->recv();
+        }
+    }
 }
