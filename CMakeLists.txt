@@ -7,6 +7,8 @@ project(dji_sdk)
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   std_msgs
+  nav_msgs
+  geometry_msgs
    message_generation
 )
 
@@ -53,7 +55,7 @@ generate_messages(
 catkin_package(
   INCLUDE_DIRS include
   LIBRARIES dji_sdk
-  CATKIN_DEPENDS roscpp std_msgs rospy
+  CATKIN_DEPENDS roscpp std_msgs rospy nav_msgs geometry_msgs
   DEPENDS system_lib
 )
  

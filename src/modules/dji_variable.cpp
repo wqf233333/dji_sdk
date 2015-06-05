@@ -14,6 +14,7 @@ namespace dji_variable
     dji_sdk::global_position global_position;
     dji_sdk::global_position global_position_degree;
     dji_sdk::local_position local_position;
+    nav_msgs::Odometry odem;
     uint8_t  flight_status;
     uint8_t ctrl_device;
     float battery = 0;

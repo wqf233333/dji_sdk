@@ -12,6 +12,7 @@
 #include <dji_sdk/acc.h>
 #include <dji_sdk/gimbal.h>
 #include <dji_sdk/rc_channels.h>
+#include <nav_msgs/Odometry.h>
 
 namespace  publishers
 {
@@ -20,6 +21,9 @@ namespace  publishers
 
     ros::Publisher gps_pub, att_quad_pub,
             vel_pub, local_pos_pub,rc_channels_pub;
+
+    ros::Publisher odem_publisher;
+
 
     int init_publishers(ros::NodeHandle &nh)
     {
@@ -38,6 +42,7 @@ namespace  publishers
         publishers::gps_pub = nh.advertise<dji_sdk::global_position>("/global_position", 10);
         publishers::local_pos_pub = nh.advertise<dji_sdk::local_position>("/local_position", 10);
         publishers::vel_pub = nh.advertise<dji_sdk::velocity>("/velocity", 10);
+        publishers::odem_publisher = nh.advertise<nav_msgs::Odometry>("/odem",10);
 
         rc_channels_pub = nh.advertise<dji_sdk::rc_channels>("/rc_channels",10);
 

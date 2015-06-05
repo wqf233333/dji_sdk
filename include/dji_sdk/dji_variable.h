@@ -10,6 +10,7 @@
 #include <dji_sdk/acc.h>
 #include <dji_sdk/gimbal.h>
 #include <dji_sdk/rc_channels.h>
+#include <nav_msgs/Odometry.h>
 
 namespace dji_variable
 {
@@ -26,6 +27,7 @@ namespace dji_variable
     extern float battery;
     extern uint8_t  flight_status;
     extern uint8_t ctrl_device;
+    extern nav_msgs::Odometry odem;
 };
 
 #endif

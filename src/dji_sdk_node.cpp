@@ -242,10 +242,17 @@ using namespace dji_variable;
 void update_ros_vars()
 {
 
+    static int frame_id = 0;
+     frame_id ++;
+    auto current_time = ros::Time::now();
+
     attitude_quad.q0 = recv_sdk_std_msgs.q.q0;
     attitude_quad.q1 = recv_sdk_std_msgs.q.q1;
     attitude_quad.q2 = recv_sdk_std_msgs.q.q2;
     attitude_quad.q3 = recv_sdk_std_msgs.q.q3;
+    attitude_quad.wx = recv_sdk_std_msgs.w.x;
+    attitude_quad.wy = recv_sdk_std_msgs.w.y;
+    attitude_quad.wz = recv_sdk_std_msgs.w.z;
     attitude_quad.ts = recv_sdk_std_msgs.time_stamp;
 
     global_position.lat = recv_sdk_std_msgs.pos.lati;
@@ -289,6 +296,28 @@ void update_ros_vars()
     local_position.height = global_position.height;
     local_position.ts = global_position.ts;
     dji_variable::local_position_ref = local_position;
+
+    odem.header.frame_id = "dji_sys_0";
+    odem.header.stamp = current_time;
+
+    odem.pose.pose.position.x = local_position.x;
+    odem.pose.pose.position.y = local_position.y;
+    odem.pose.pose.position.z = local_position.height;
+
+    odem.pose.pose.orientation.w = attitude_quad.q0;
+    odem.pose.pose.orientation.x = attitude_quad.q1;
+    odem.pose.pose.orientation.y = attitude_quad.q2;
+    odem.pose.pose.orientation.z = attitude_quad.q3;
+
+    odem.twist.twist.angular.x = attitude_quad.wx;
+    odem.twist.twist.angular.y = attitude_quad.wy;
+    odem.twist.twist.angular.z = attitude_quad.wz;
+
+    odem.twist.twist.linear.x = velocity.velx;
+    odem.twist.twist.linear.y = velocity.vely;
+    odem.twist.twist.linear.z = velocity.velz;
+
+    publishers::odem_publisher.publish(odem);
 
     if (gimbal::gimbal_lookat_enable) {
         gimbal::control(
